@@ -21,3 +21,24 @@ test_that("is_uuid works", {
   expect_false(is_uuid("123e4567-e89b-12d3-a456-4266141740000")) # too long
   expect_false(is_uuid("g23e4567-e89b-12d3-a456-426614174000")) # invalid hex char
 })
+
+test_that("is_base64 works", {
+  expect_true(is_base64("TWFu"))
+  expect_true(is_base64("TWE="))
+  expect_true(is_base64("TQ=="))
+  expect_true(is_base64("U29tZSBkYXRhIHdpdGggL3VzZXJzLw=="))
+
+  expect_false(is_base64("TWE")) # not padded
+  expect_false(is_base64("TWE===")) # overpadded
+  expect_false(is_base64("TWE*")) # invalid char
+})
+
+test_that("is_base64url works", {
+  expect_true(is_base64url("TWFu"))
+  expect_true(is_base64url("TWE"))
+  expect_true(is_base64url("TQ"))
+  expect_true(is_base64url("U29tZV9kYXRhLXdpdGgtL3VzZXJzLw"))
+
+  expect_false(is_base64url("TWE===")) # overpadded
+  expect_false(is_base64url("TWE*")) # invalid char
+})
