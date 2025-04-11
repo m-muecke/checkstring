@@ -4,6 +4,12 @@ is_email <- function(x) {
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 
+#' @export
+is_uuid <- function(x) {
+  regex <- "^[0-9a-f]{8}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{12}$" # nolint
+  is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
+}
+
 is_string <- function(x) {
   is.character(x) && length(x) == 1L && !is.na(x)
 }
