@@ -3,4 +3,5 @@
 export(is_base64)
 export(is_base64url)
 export(is_email)
+export(is_url)
 export(is_uuid)

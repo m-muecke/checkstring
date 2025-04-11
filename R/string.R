@@ -1,4 +1,4 @@
-#' Check if an argument is a email address string
+c #' Check if an argument is a email address string
 #'
 #' @param x (`any`) object to check.
 #' @export
@@ -32,6 +32,23 @@ is_base64 <- function(x) {
 is_base64url <- function(x) {
   regex <- "^([0-9a-zA-Z\\-_]{4})*((([0-9a-zA-Z\\-_]{2}(==)?)|([0-9a-zA-Z\\-_]{3}(=)?))?)$" # nolint
   is_string(x) && grepl(regex, x, perl = TRUE)
+}
+
+#' Check if an argument is url string
+#'
+#' @param x (`any`) object to check.
+#' @export
+is_url <- function(x) {
+  if (!requireNamespace("curl", quietly = TRUE)) {
+    stop("Please install the curl package to use this function.", call. = FALSE)
+  }
+  tryCatch(
+    {
+      curl::curl_parse_url(x, decode = FALSE)
+      TRUE
+    },
+    error = function(e) FALSE
+  )
 }
 
 is_string <- function(x) {
