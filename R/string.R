@@ -1,4 +1,4 @@
-c #' Check if an argument is a email address string
+#' Check if an argument is a email address string
 #'
 #' @param x (`any`) object to check.
 #' @export
