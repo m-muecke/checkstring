@@ -47,7 +47,7 @@ is_url <- function(x) {
   if (!requireNamespace("curl", quietly = TRUE)) {
     stop("Please install the curl package to use this function.", call. = FALSE)
   }
-  if (!is_string(x)) {
+  if (!is_string(x) || !nzchar(x)) {
     return(FALSE)
   }
   tryCatch(

@@ -1,28 +1,26 @@
 #' Assert that dots are empty
 #'
-#' @param ... (`any`) ellipsis arguments to check.
+#' @param ... (`any`)\cr
+#'   Ellipsis arguments to check.
 #' @export
 assert_empty_dots <- function(...) {
   nx <- ...length()
   if (nx == 0L) {
-    return()
+    return(invisible())
   }
   nms <- ...names()
   if (is.null(nms)) {
-    stop(sprintf("Received %i unnamed argument that was not used.", nx), call. = FALSE)
+    stop(sprintf("Received %i unused unnamed arguments.", nx), call. = FALSE)
   }
-  nms2 <- nms[nzchar(nms)]
-  if (length(nms2) == length(nms)) {
-    stop(
-      sprintf("Received the following named arguments that were unused: %s.", toString(nms2)),
-      call. = FALSE
-    )
+  named <- nms[nzchar(nms)]
+  if (nx == length(named)) {
+    stop(sprintf("Received unused named argument(s): %s.", toString(named)), call. = FALSE)
   }
   stop(
     sprintf(
-      "Received unused arguments: %i unnamed, as well as named arguments %s.",
-      length(nms) - length(nms2),
-      toString(nms2)
+      "Received %i unused unnamed argument(s) and unused named argument(s): %s.",
+      nx - length(named),
+      toString(named)
     ),
     call. = FALSE
   )
