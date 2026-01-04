@@ -12,4 +12,5 @@ assert_empty_dots(...)
 
 - ...:
 
-  (`any`) ellipsis arguments to check.
+  (`any`)  
+  Ellipsis arguments to check.
