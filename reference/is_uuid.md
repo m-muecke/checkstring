@@ -12,4 +12,5 @@ is_uuid(x)
 
 - x:
 
-  (`any`) object to check.
+  (`any`)  
+  Object to check.

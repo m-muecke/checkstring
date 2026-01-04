@@ -12,4 +12,5 @@ is_email(x)
 
 - x:
 
-  (`any`) object to check.
+  (`any`)  
+  Object to check.

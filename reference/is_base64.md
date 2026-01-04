@@ -12,4 +12,5 @@ is_base64(x)
 
 - x:
 
-  (`any`) object to check.
+  (`any`)  
+  Object to check.

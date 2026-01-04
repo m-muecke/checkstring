@@ -10,13 +10,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/m-muecke/checkstring/blob/main/DESCRIPTION)
 
-Mücke M (2025). *checkstring: Common string regex checks*. R package
+Mücke M (2026). *checkstring: Common string regex checks*. R package
 version 0.1.0.9000, <https://m-muecke.github.io/checkstring/>.
 
     @Manual{,
       title = {checkstring: Common string regex checks},
       author = {Maximilian Mücke},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.1.0.9000},
       url = {https://m-muecke.github.io/checkstring/},
     }
