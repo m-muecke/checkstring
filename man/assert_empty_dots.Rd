@@ -7,7 +7,8 @@
 assert_empty_dots(...)
 }
 \arguments{
-\item{...}{(\code{any}) ellipsis arguments to check.}
+\item{...}{(\code{any})\cr
+Ellipsis arguments to check.}
 }
 \description{
 Assert that dots are empty

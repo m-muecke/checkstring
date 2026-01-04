@@ -4,22 +4,23 @@
 #'   Ellipsis arguments to check.
 #' @export
 assert_empty_dots <- function(...) {
-  nx <- ...length()
-  if (nx == 0L) {
+  n <- ...length()
+  if (n == 0L) {
     return(invisible())
   }
   nms <- ...names()
   if (is.null(nms)) {
-    stop(sprintf("Received %i unused unnamed arguments.", nx), call. = FALSE)
+    stop(sprintf("Received %i unused unnamed arguments.", n), call. = FALSE)
   }
   named <- nms[nzchar(nms)]
-  if (nx == length(named)) {
+  n_unnamed <- n - length(named)
+  if (n_unnamed == 0L) {
     stop(sprintf("Received unused named argument(s): %s.", toString(named)), call. = FALSE)
   }
   stop(
     sprintf(
       "Received %i unused unnamed argument(s) and unused named argument(s): %s.",
-      nx - length(named),
+      n_unnamed,
       toString(named)
     ),
     call. = FALSE
