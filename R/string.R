@@ -1,6 +1,7 @@
 #' Check if an argument is a email address string
 #'
-#' @param x (`any`) object to check.
+#' @param x (`any`)\cr
+#'   Object to check.
 #' @export
 is_email <- function(x) {
   regex <- "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_'+\\-\\.]*[A-Z0-9_+\\-])@([A-Z0-9][A-Z0-9\\-]*\\.)+[A-Z]{2,}$" # nolint
@@ -9,7 +10,8 @@ is_email <- function(x) {
 
 #' Check if an argument is an UUID string
 #'
-#' @param x (`any`) object to check.
+#' @param x (`any`)\cr
+#'   Object to check.
 #' @export
 is_uuid <- function(x) {
   regex <- "^[0-9a-f]{8}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{12}$" # nolint
@@ -18,7 +20,8 @@ is_uuid <- function(x) {
 
 #' Check if an argument is a base64 string
 #'
-#' @param x (`any`) object to check.
+#' @param x (`any`)\cr
+#'   Object to check.
 #' @export
 is_base64 <- function(x) {
   regex <- "^([0-9a-zA-Z+/]{4})*((([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?)$"
@@ -27,7 +30,8 @@ is_base64 <- function(x) {
 
 #' Check if an argument is base64url string
 #'
-#' @param x (`any`) object to check.
+#' @param x (`any`)\cr
+#'   Object to check.
 #' @export
 is_base64url <- function(x) {
   regex <- "^([0-9a-zA-Z\\-_]{4})*((([0-9a-zA-Z\\-_]{2}(==)?)|([0-9a-zA-Z\\-_]{3}(=)?))?)$" # nolint
@@ -36,7 +40,8 @@ is_base64url <- function(x) {
 
 #' Check if an argument is url string
 #'
-#' @param x (`any`) object to check.
+#' @param x (`any`)\cr
+#'   Object to check.
 #' @export
 is_url <- function(x) {
   if (!requireNamespace("curl", quietly = TRUE)) {

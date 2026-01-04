@@ -14,10 +14,7 @@ assert_empty_dots <- function(...) {
   nms2 <- nms[nzchar(nms)]
   if (length(nms2) == length(nms)) {
     stop(
-      sprintf(
-        "Received the following named arguments that were unused: %s.",
-        toString(nms2)
-      ),
+      sprintf("Received the following named arguments that were unused: %s.", toString(nms2)),
       call. = FALSE
     )
   }

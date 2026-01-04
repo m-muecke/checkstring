@@ -7,7 +7,8 @@
 is_url(x)
 }
 \arguments{
-\item{x}{(\code{any}) object to check.}
+\item{x}{(\code{any})\cr
+Object to check.}
 }
 \description{
 Check if an argument is url string
