@@ -2,6 +2,7 @@
 #'
 #' @param ... (`any`)\cr
 #'   Ellipsis arguments to check.
+#' @return `NULL` invisibly if empty, otherwise throws an error.
 #' @export
 assert_empty_dots <- function(...) {
   n <- ...length()
@@ -10,7 +11,7 @@ assert_empty_dots <- function(...) {
   }
   nms <- ...names()
   if (is.null(nms)) {
-    stop(sprintf("Received %i unused unnamed arguments.", n), call. = FALSE)
+    stop(sprintf("Received %i unused unnamed argument(s).", n), call. = FALSE)
   }
   named <- nms[nzchar(nms)]
   n_unnamed <- n - length(named)
