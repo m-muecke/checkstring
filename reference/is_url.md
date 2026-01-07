@@ -14,3 +14,7 @@ is_url(x)
 
   (`any`)  
   Object to check.
+
+## Value
+
+`TRUE` if `x` is a valid URL string, `FALSE` otherwise.

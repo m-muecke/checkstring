@@ -14,3 +14,7 @@ is_base64url(x)
 
   (`any`)  
   Object to check.
+
+## Value
+
+`TRUE` if `x` is a valid base64url string, `FALSE` otherwise.

@@ -14,3 +14,7 @@ is_uuid(x)
 
   (`any`)  
   Object to check.
+
+## Value
+
+`TRUE` if `x` is a valid UUID string, `FALSE` otherwise.
