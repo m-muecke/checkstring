@@ -10,6 +10,9 @@ is_base64url(x)
 \item{x}{(\code{any})\cr
 Object to check.}
 }
+\value{
+\code{TRUE} if \code{x} is a valid base64url string, \code{FALSE} otherwise.
+}
 \description{
 Check if an argument is base64url string
 }

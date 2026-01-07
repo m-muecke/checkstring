@@ -10,6 +10,9 @@ is_email(x)
 \item{x}{(\code{any})\cr
 Object to check.}
 }
+\value{
+\code{TRUE} if \code{x} is a valid email address string, \code{FALSE} otherwise.
+}
 \description{
 Check if an argument is a email address string
 }

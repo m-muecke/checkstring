@@ -10,6 +10,9 @@ is_uuid(x)
 \item{x}{(\code{any})\cr
 Object to check.}
 }
+\value{
+\code{TRUE} if \code{x} is a valid UUID string, \code{FALSE} otherwise.
+}
 \description{
 Check if an argument is an UUID string
 }
