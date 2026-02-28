@@ -9,6 +9,8 @@
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_base64.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_base64url.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_email.html</loc></url>
+<url><loc>https://m-muecke.github.io/checkstring/reference/is_hex.html</loc></url>
+<url><loc>https://m-muecke.github.io/checkstring/reference/is_ipv4.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_url.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_uuid.html</loc></url>
 </urlset>

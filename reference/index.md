@@ -10,6 +10,10 @@
   : Check if an argument is base64url string
 - [`is_email()`](https://m-muecke.github.io/checkstring/reference/is_email.md)
   : Check if an argument is a email address string
+- [`is_hex()`](https://m-muecke.github.io/checkstring/reference/is_hex.md)
+  : Check if an argument is a hexadecimal string
+- [`is_ipv4()`](https://m-muecke.github.io/checkstring/reference/is_ipv4.md)
+  : Check if an argument is an IPv4 address string
 - [`is_url()`](https://m-muecke.github.io/checkstring/reference/is_url.md)
   : Check if an argument is url string
 - [`is_uuid()`](https://m-muecke.github.io/checkstring/reference/is_uuid.md)
