@@ -46,12 +46,22 @@ is_base64("SGVsbG8gV29ybGQ=")
   : Check if an argument is a base64 string
 - [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md)
   : Check if an argument is base64url string
+- [`is_cuid2()`](https://m-muecke.github.io/checkstring/reference/is_cuid2.md)
+  : Check if an argument is a CUID2 string
 - [`is_email()`](https://m-muecke.github.io/checkstring/reference/is_email.md)
   : Check if an argument is a email address string
 - [`is_hex()`](https://m-muecke.github.io/checkstring/reference/is_hex.md)
   : Check if an argument is a hexadecimal string
+- [`is_hostname()`](https://m-muecke.github.io/checkstring/reference/is_hostname.md)
+  : Check if an argument is a hostname string
 - [`is_ipv4()`](https://m-muecke.github.io/checkstring/reference/is_ipv4.md)
   : Check if an argument is an IPv4 address string
+- [`is_mac()`](https://m-muecke.github.io/checkstring/reference/is_mac.md)
+  : Check if an argument is a MAC address string
+- [`is_nanoid()`](https://m-muecke.github.io/checkstring/reference/is_nanoid.md)
+  : Check if an argument is a Nano ID string
+- [`is_ulid()`](https://m-muecke.github.io/checkstring/reference/is_ulid.md)
+  : Check if an argument is a ULID string
 - [`is_url()`](https://m-muecke.github.io/checkstring/reference/is_url.md)
   : Check if an argument is url string
 - [`is_uuid()`](https://m-muecke.github.io/checkstring/reference/is_uuid.md)
