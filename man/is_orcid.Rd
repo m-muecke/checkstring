@@ -14,7 +14,8 @@ Object to check.}
 \code{TRUE} if \code{x} is a valid ORCID string, \code{FALSE} otherwise.
 }
 \description{
-Check if an argument is an ORCID string
+Validates ORCID format including ISO/IEC 7064:2003, MOD 11-2 check digit
+verification.
 }
 \references{
 \url{https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier}
