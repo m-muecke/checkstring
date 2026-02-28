@@ -43,6 +43,19 @@ test_that("is_base64url works", {
   expect_false(is_base64url("TWE*")) # invalid char
 })
 
+test_that("is_iban works", {
+  expect_true(is_iban("GB29NWBK60161331926819"))
+  expect_true(is_iban("DE89370400440532013000"))
+  expect_true(is_iban("FR7630006000011234567890189"))
+
+  expect_false(is_iban("GB29NWBK60161331926818")) # bad check digits
+  expect_false(is_iban("DE00370400440532013000")) # check digits 00
+  expect_false(is_iban("1234567890")) # no country code
+  expect_false(is_iban("GB29")) # too short
+  expect_false(is_iban("gb29NWBK60161331926819")) # lowercase country
+  expect_false(is_iban(123L))
+})
+
 test_that("is_bic works", {
   expect_true(is_bic("DEUTDEFF"))
   expect_true(is_bic("DEUTDEFF500"))
@@ -217,6 +230,18 @@ test_that("is_isbn works", {
   expect_false(is_isbn("030640615")) # too short
   expect_false(is_isbn("12345")) # wrong length
   expect_false(is_isbn(123L))
+})
+
+test_that("is_lei works", {
+  expect_true(is_lei("7H6GLXDRUGQFU57RNE97"))
+  expect_true(is_lei("529900T8BM49AURSDO55"))
+  expect_true(is_lei("213800WSGIIZCXF1P572"))
+
+  expect_false(is_lei("7H6GLXDRUGQFU57RNE98")) # bad check digits
+  expect_false(is_lei("7H6GLXDRUGQFU57RNE9")) # too short
+  expect_false(is_lei("7H6GLXDRUGQFU57RNE970")) # too long
+  expect_false(is_lei("7h6glxdrugqfu57rne97")) # lowercase
+  expect_false(is_lei(123L))
 })
 
 test_that("is_issn works", {

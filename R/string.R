@@ -42,6 +42,24 @@ is_base64url <- function(x) {
   is_string(x) && grepl(regex, x, perl = TRUE)
 }
 
+#' Check if an argument is a valid IBAN string
+#'
+#' Validates IBAN format including MOD-97-10 check digit verification (ISO/IEC 7064).
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid IBAN string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/International_Bank_Account_Number>
+#' @export
+is_iban <- function(x) {
+  if (!is_string(x) || !grepl("^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$", x)) {
+    return(FALSE)
+  }
+  x <- paste0(substring(x, 5L), substring(x, 1L, 4L))
+  mod97(x) == 1L
+}
+
 #' Check if an argument is a BIC/SWIFT code string
 #'
 #' @param x (`any`)\cr
@@ -257,6 +275,25 @@ is_isbn <- function(x) {
   }
 }
 
+#' Check if an argument is a valid LEI string
+#'
+#' Validates LEI (Legal Entity Identifier) format including MOD-97-10 check digit verification
+#' (ISO/IEC 7064).
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid LEI string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/Legal_Entity_Identifier>
+#' <https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml>
+#' @export
+is_lei <- function(x) {
+  if (!is_string(x) || !grepl("^[A-Z0-9]{18}[0-9]{2}$", x)) {
+    return(FALSE)
+  }
+  mod97(x) == 1L
+}
+
 #' Check if an argument is an ISSN string
 #'
 #' Validates ISSN format including check digit verification.
@@ -278,6 +315,19 @@ is_issn <- function(x) {
 parse_check_digits <- function(x, n) {
   chars <- strsplit(x, "", fixed = TRUE)[[1L]]
   vapply(chars, \(x) if (x == "X") 10L else as.integer(x), NA_integer_, USE.NAMES = FALSE)
+}
+
+mod97 <- function(x) {
+  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
+  rem <- 0L
+  for (ch in chars) {
+    if (grepl("[A-Z]", ch)) {
+      rem <- (rem * 100L + match(ch, LETTERS) + 9L) %% 97L
+    } else {
+      rem <- (rem * 10L + as.integer(ch)) %% 97L
+    }
+  }
+  rem
 }
 
 is_string <- function(x) {
