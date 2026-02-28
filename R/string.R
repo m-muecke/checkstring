@@ -64,6 +64,29 @@ is_url <- function(x) {
   )
 }
 
+#' Check if an argument is an IPv4 address string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid IPv4 address string, `FALSE` otherwise.
+#' @export
+is_ipv4 <- function(x) {
+  octet <- "(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])"
+  regex <- paste0("^", paste(rep(octet, 4L), collapse = "\\."), "$")
+  is_string(x) && grepl(regex, x, perl = TRUE)
+}
+
+#' Check if an argument is a hexadecimal string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid non-empty hexadecimal string, `FALSE`
+#'   otherwise.
+#' @export
+is_hex <- function(x) {
+  is_string(x) && grepl("^[0-9a-f]+$", x, ignore.case = TRUE)
+}
+
 is_string <- function(x) {
   is.character(x) && length(x) == 1L && !is.na(x)
 }

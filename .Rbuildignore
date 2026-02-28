@@ -8,9 +8,11 @@
 ^Meta$
 ^README\.Rmd$
 ^README\.html$
+^\.?air\.toml$
 ^\.Renviron$
 ^\.Rproj\.user$
 ^\.ccache$
+^\.claude$
 ^\.dockerignore$
 ^\.editorconfig$
 ^\.gitattributes$
@@ -22,10 +24,8 @@
 ^\.pre-commit-config\.yaml$
 ^\.vscode$
 ^_pkgdown\.yml$
-^air\.toml$
 ^attic$
 ^codecov\.yml$
-^codemeta\.json$
 ^compose\.ya?ml$
 ^cran-comments\.md$
 ^data-raw$

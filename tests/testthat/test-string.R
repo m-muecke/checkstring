@@ -42,3 +42,30 @@ test_that("is_base64url works", {
   expect_false(is_base64url("TWE===")) # overpadded
   expect_false(is_base64url("TWE*")) # invalid char
 })
+
+test_that("is_ipv4 works", {
+  expect_true(is_ipv4("0.0.0.0"))
+  expect_true(is_ipv4("127.0.0.1"))
+  expect_true(is_ipv4("192.168.1.1"))
+  expect_true(is_ipv4("255.255.255.255"))
+
+  expect_false(is_ipv4("256.0.0.1")) # octet > 255
+  expect_false(is_ipv4("192.168.1")) # only 3 octets
+  expect_false(is_ipv4("192.168.1.1.1")) # 5 octets
+  expect_false(is_ipv4("192.168.01.1")) # leading zero
+  expect_false(is_ipv4("abc.def.ghi.jkl")) # non-numeric
+  expect_false(is_ipv4(1L))
+})
+
+test_that("is_hex works", {
+  expect_true(is_hex("1a2b3c"))
+  expect_true(is_hex("DEADBEEF"))
+  expect_true(is_hex("0"))
+  expect_true(is_hex("abcdef0123456789"))
+
+  expect_false(is_hex("")) # empty
+  expect_false(is_hex("0x1a2b")) # prefix
+  expect_false(is_hex("ghijkl")) # non-hex chars
+  expect_false(is_hex("1a 2b")) # spaces
+  expect_false(is_hex(123L))
+})
