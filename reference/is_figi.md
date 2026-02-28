@@ -24,3 +24,10 @@ is_figi(x)
 
 <https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier>
 <https://www.openfigi.com/assets/content/figi-check-digit-2173341b2d.pdf>
+
+## Examples
+
+``` r
+is_figi("BBG000BLNNH6")
+#> [1] TRUE
+```

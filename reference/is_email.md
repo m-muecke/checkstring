@@ -18,3 +18,10 @@ is_email(x)
 ## Value
 
 `TRUE` if `x` is a valid email address string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_email("user@example.com")
+#> [1] TRUE
+```

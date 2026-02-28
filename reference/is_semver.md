@@ -24,3 +24,10 @@ is_semver(x)
 ## References
 
 <https://semver.org/>
+
+## Examples
+
+``` r
+is_semver("1.0.0")
+#> [1] TRUE
+```

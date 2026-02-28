@@ -23,3 +23,10 @@ is_isin(x)
 ## References
 
 <https://en.wikipedia.org/wiki/International_Securities_Identification_Number>
+
+## Examples
+
+``` r
+is_isin("US0378331005")
+#> [1] TRUE
+```

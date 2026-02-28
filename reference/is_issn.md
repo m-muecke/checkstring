@@ -22,3 +22,10 @@ is_issn(x)
 ## References
 
 <https://www.loc.gov/issn/check.html>
+
+## Examples
+
+``` r
+is_issn("0378-5955")
+#> [1] TRUE
+```

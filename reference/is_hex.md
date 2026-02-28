@@ -19,3 +19,10 @@ is_hex(x)
 
 `TRUE` if `x` is a valid non-empty hexadecimal string, `FALSE`
 otherwise.
+
+## Examples
+
+``` r
+is_hex("deadbeef")
+#> [1] TRUE
+```

@@ -18,3 +18,10 @@ is_base64url(x)
 ## Value
 
 `TRUE` if `x` is a valid base64url string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_base64url("SGVsbG8gV29ybGQ")
+#> [1] TRUE
+```

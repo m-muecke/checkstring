@@ -18,3 +18,10 @@ is_nanoid(x)
 ## Value
 
 `TRUE` if `x` is a valid Nano ID string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_nanoid("V1StGXR8_Z5jdHi6B-myT")
+#> [1] TRUE
+```

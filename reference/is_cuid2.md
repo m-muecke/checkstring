@@ -18,3 +18,10 @@ is_cuid2(x)
 ## Value
 
 `TRUE` if `x` is a valid CUID2 string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_cuid2("ckopqwooh000001la8mbi2im9")
+#> [1] TRUE
+```

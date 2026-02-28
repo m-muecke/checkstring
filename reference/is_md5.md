@@ -18,3 +18,10 @@ is_md5(x)
 ## Value
 
 `TRUE` if `x` is a valid MD5 hash string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_md5("d41d8cd98f00b204e9800998ecf8427e")
+#> [1] TRUE
+```

@@ -23,3 +23,10 @@ is_isbn(x)
 ## References
 
 <https://en.wikipedia.org/wiki/International_Standard_Book_Number>
+
+## Examples
+
+``` r
+is_isbn("978-0-306-40615-7")
+#> [1] TRUE
+```

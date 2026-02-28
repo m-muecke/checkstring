@@ -18,3 +18,10 @@ is_mac(x)
 ## Value
 
 `TRUE` if `x` is a valid MAC address string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_mac("00:1B:44:11:3A:B7")
+#> [1] TRUE
+```

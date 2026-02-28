@@ -23,3 +23,10 @@ is_iban(x)
 ## References
 
 <https://en.wikipedia.org/wiki/International_Bank_Account_Number>
+
+## Examples
+
+``` r
+is_iban("GB29NWBK60161331926819")
+#> [1] TRUE
+```

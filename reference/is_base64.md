@@ -18,3 +18,10 @@ is_base64(x)
 ## Value
 
 `TRUE` if `x` is a valid base64 string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_base64("SGVsbG8gV29ybGQ=")
+#> [1] TRUE
+```

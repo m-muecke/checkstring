@@ -23,3 +23,10 @@ is_orcid(x)
 ## References
 
 <https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier>
+
+## Examples
+
+``` r
+is_orcid("0000-0002-1825-0097")
+#> [1] TRUE
+```

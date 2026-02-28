@@ -22,3 +22,10 @@ is_ulid(x)
 ## References
 
 <https://github.com/ulid/spec>
+
+## Examples
+
+``` r
+is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAV")
+#> [1] TRUE
+```

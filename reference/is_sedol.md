@@ -22,3 +22,10 @@ is_sedol(x)
 ## References
 
 <https://en.wikipedia.org/wiki/SEDOL>
+
+## Examples
+
+``` r
+is_sedol("0263494")
+#> [1] TRUE
+```

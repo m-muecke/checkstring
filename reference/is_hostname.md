@@ -22,3 +22,10 @@ is_hostname(x)
 ## References
 
 <https://en.wikipedia.org/wiki/Hostname>
+
+## Examples
+
+``` r
+is_hostname("example.com")
+#> [1] TRUE
+```

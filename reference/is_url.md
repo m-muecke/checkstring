@@ -18,3 +18,10 @@ is_url(x)
 ## Value
 
 `TRUE` if `x` is a valid URL string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_url("https://example.com")
+#> [1] TRUE
+```

@@ -23,3 +23,10 @@ is_bic(x)
 
 <https://en.wikipedia.org/wiki/ISO_9362>
 <https://knowledge.xmldation.com/support/iso20022/general_rules/bic>
+
+## Examples
+
+``` r
+is_bic("DEUTDEFF")
+#> [1] TRUE
+```

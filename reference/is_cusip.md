@@ -22,3 +22,10 @@ is_cusip(x)
 ## References
 
 <https://en.wikipedia.org/wiki/CUSIP>
+
+## Examples
+
+``` r
+is_cusip("037833100")
+#> [1] TRUE
+```

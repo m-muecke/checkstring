@@ -18,3 +18,9 @@ assert_empty_dots(...)
 ## Value
 
 `NULL` invisibly if empty, otherwise throws an error.
+
+## Examples
+
+``` r
+assert_empty_dots()
+```

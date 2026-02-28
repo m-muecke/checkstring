@@ -18,3 +18,10 @@ is_ipv4(x)
 ## Value
 
 `TRUE` if `x` is a valid IPv4 address string, `FALSE` otherwise.
+
+## Examples
+
+``` r
+is_ipv4("192.168.1.1")
+#> [1] TRUE
+```
