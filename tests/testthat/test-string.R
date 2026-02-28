@@ -138,10 +138,13 @@ test_that("is_doi works", {
 })
 
 test_that("is_orcid works", {
-  expect_true(is_orcid("0000-0003-0918-3766"))
-  expect_true(is_orcid("0000-0002-1825-009X"))
+  # sample ORCIDs from the ORCID website
+  expect_true(is_orcid("0000-0002-1825-0097"))
+  expect_true(is_orcid("0000-0001-5109-3700"))
+  expect_true(is_orcid("0000-0002-1694-233X"))
   expect_true(is_orcid("0000-0001-5000-0007"))
 
+  expect_false(is_orcid("0000-0002-1825-0098")) # bad check digit
   expect_false(is_orcid("0000-0003-0918-376")) # too short
   expect_false(is_orcid("0000-0003-0918-37666")) # too long
   expect_false(is_orcid("000000030918376")) # no hyphens

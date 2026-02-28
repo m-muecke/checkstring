@@ -158,6 +158,9 @@ is_doi <- function(x) {
 
 #' Check if an argument is an ORCID string
 #'
+#' Validates ORCID format including ISO/IEC 7064:2003, MOD 11-2 check digit
+#' verification.
+#'
 #' @param x (`any`)\cr
 #'   Object to check.
 #' @return `TRUE` if `x` is a valid ORCID string, `FALSE` otherwise.
@@ -165,7 +168,17 @@ is_doi <- function(x) {
 #' <https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier>
 #' @export
 is_orcid <- function(x) {
-  is_string(x) && grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)
+  if (!is_string(x) || !grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)) {
+    return(FALSE)
+  }
+  chars <- strsplit(gsub("-", "", x, fixed = TRUE), "", fixed = TRUE)[[1L]]
+  total <- 0L
+  for (d in as.integer(chars[1:15])) {
+    total <- (total + d) * 2L
+  }
+  result <- (12L - total %% 11L) %% 11L
+  expected <- if (result == 10L) "X" else as.character(result)
+  chars[16L] == expected
 }
 
 #' Check if an argument is an ISBN string
