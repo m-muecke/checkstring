@@ -17,7 +17,8 @@ for R, inspired by [Zod’s](https://zod.dev/?id=strings) string
 validators. It extends the
 [checkmate](https://mllg.github.io/checkmate/) family of argument checks
 with common string format validations such as email addresses, UUIDs,
-URLs, IP addresses, and encodings.
+URLs, IP addresses, and financial and academic identifiers like ISIN,
+CUSIP, IBAN, ISBN, and ORCID, including check digit verification.
 
 ## Installation
 
@@ -45,5 +46,9 @@ is_hex("deadbeef")
 is_url("https://example.com")
 #> [1] TRUE
 is_base64("SGVsbG8gV29ybGQ=")
+#> [1] TRUE
+is_isin("US0378331005")
+#> [1] TRUE
+is_iban("GB29NWBK60161331926819")
 #> [1] TRUE
 ```

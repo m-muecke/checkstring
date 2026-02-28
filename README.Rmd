@@ -26,7 +26,8 @@ The goal of checkstring is to provide string format validation functions for R,
 inspired by [Zod's](https://zod.dev/?id=strings) string validators.
 It extends the [checkmate](https://mllg.github.io/checkmate/) family of
 argument checks with common string format validations such as email addresses,
-UUIDs, URLs, IP addresses, and encodings.
+UUIDs, URLs, IP addresses, and financial and academic identifiers like ISIN,
+CUSIP, IBAN, ISBN, and ORCID, including check digit verification.
 
 ## Installation
 
@@ -49,4 +50,6 @@ is_ipv4("192.168.1.1")
 is_hex("deadbeef")
 is_url("https://example.com")
 is_base64("SGVsbG8gV29ybGQ=")
+is_isin("US0378331005")
+is_iban("GB29NWBK60161331926819")
 ```
