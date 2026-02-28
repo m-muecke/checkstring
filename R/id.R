@@ -29,6 +29,34 @@ is_bic <- function(x) {
   is_string(x) && grepl("^[A-Z]{4}[A-Z]{2}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?$", x)
 }
 
+#' Check if an argument is a valid CUSIP string
+#'
+#' Validates CUSIP format including Luhn-variant check digit verification.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid CUSIP string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/CUSIP>
+#' @export
+is_cusip <- function(x) {
+  if (!is_string(x) || !grepl("^[A-Z0-9]{9}$", x)) {
+    return(FALSE)
+  }
+  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
+  total <- 0L
+  for (i in seq_len(8L)) {
+    ch <- chars[[i]]
+    val <- if (grepl("[0-9]", ch)) as.integer(ch) else match(ch, LETTERS) + 9L
+    if (i %% 2L == 0L) {
+      val <- val * 2L
+    }
+    total <- total + (val %/% 10L) + (val %% 10L)
+  }
+  check <- (10L - (total %% 10L)) %% 10L
+  as.integer(chars[[9L]]) == check
+}
+
 #' Check if an argument is a DOI string
 #'
 #' @param x (`any`)\cr
@@ -129,6 +157,32 @@ is_orcid <- function(x) {
   result <- (12L - total %% 11L) %% 11L
   expected <- if (result == 10L) "X" else as.character(result)
   chars[16L] == expected
+}
+
+#' Check if an argument is a valid SEDOL string
+#'
+#' Validates SEDOL format including weighted check digit verification.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid SEDOL string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/SEDOL>
+#' @export
+is_sedol <- function(x) {
+  if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$", x)) {
+    return(FALSE)
+  }
+  weights <- c(1L, 3L, 1L, 7L, 3L, 9L)
+  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
+  total <- 0L
+  for (i in seq_len(6L)) {
+    ch <- chars[[i]]
+    val <- if (grepl("[0-9]", ch)) as.integer(ch) else match(ch, LETTERS) + 9L
+    total <- total + val * weights[[i]]
+  }
+  check <- (10L - (total %% 10L)) %% 10L
+  as.integer(chars[[7L]]) == check
 }
 
 parse_check_digits <- function(x, n) {

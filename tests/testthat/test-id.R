@@ -28,6 +28,18 @@ test_that("is_bic works", {
   expect_false(is_bic(123L))
 })
 
+test_that("is_cusip works", {
+  expect_true(is_cusip("037833100")) # Apple
+  expect_true(is_cusip("17275R102")) # Cisco
+  expect_true(is_cusip("594918104")) # Microsoft
+
+  expect_false(is_cusip("037833101")) # bad check digit
+  expect_false(is_cusip("03783310")) # too short
+  expect_false(is_cusip("0378331000")) # too long
+  expect_false(is_cusip("03783310a")) # lowercase
+  expect_false(is_cusip(123L))
+})
+
 test_that("is_doi works", {
   expect_true(is_doi("10.1000/xyz123"))
   expect_true(is_doi("10.1038/nphys1170"))
@@ -78,6 +90,18 @@ test_that("is_lei works", {
   expect_false(is_lei("7H6GLXDRUGQFU57RNE970")) # too long
   expect_false(is_lei("7h6glxdrugqfu57rne97")) # lowercase
   expect_false(is_lei(123L))
+})
+
+test_that("is_sedol works", {
+  expect_true(is_sedol("0263494")) # BAE Systems
+  expect_true(is_sedol("B0YBKJ7")) # Vodafone
+  expect_true(is_sedol("0540528")) # GlaxoSmithKline
+
+  expect_false(is_sedol("0263495")) # bad check digit
+  expect_false(is_sedol("026349")) # too short
+  expect_false(is_sedol("02634940")) # too long
+  expect_false(is_sedol("A263494")) # vowel A not allowed
+  expect_false(is_sedol(123L))
 })
 
 test_that("is_orcid works", {
