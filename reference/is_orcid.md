@@ -1,6 +1,7 @@
 # Check if an argument is an ORCID string
 
-Check if an argument is an ORCID string
+Validates ORCID format including ISO/IEC 7064:2003, MOD 11-2 check digit
+verification.
 
 ## Usage
 
