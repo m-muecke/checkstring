@@ -27,6 +27,8 @@ reference:
       - is_bic
       - is_cusip
       - is_doi
+      - is_figi
+      - is_isin
       - is_iban
       - is_isbn
       - is_issn

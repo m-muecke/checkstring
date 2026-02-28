@@ -40,6 +40,18 @@ test_that("is_cusip works", {
   expect_false(is_cusip(123L))
 })
 
+test_that("is_figi works", {
+  expect_true(is_figi("BBG000BLNNH6")) # IBM
+  expect_true(is_figi("BBG000B9XRY4")) # Apple
+
+  expect_false(is_figi("BBG000BLNNH7")) # bad check digit
+  expect_false(is_figi("BBG000BLNNH")) # too short
+  expect_false(is_figi("BBG000BLNNH60")) # too long
+  expect_false(is_figi("XYG000BLNNH6")) # wrong prefix
+  expect_false(is_figi("BBG000BLANH6")) # vowel A not allowed
+  expect_false(is_figi(123L))
+})
+
 test_that("is_doi works", {
   expect_true(is_doi("10.1000/xyz123"))
   expect_true(is_doi("10.1038/nphys1170"))
@@ -50,6 +62,18 @@ test_that("is_doi works", {
   expect_false(is_doi("10.12/xyz")) # registrant too short
   expect_false(is_doi("10.1000/")) # empty suffix
   expect_false(is_doi("10.1000")) # no slash
+})
+
+test_that("is_isin works", {
+  expect_true(is_isin("US0378331005")) # Apple
+  expect_true(is_isin("GB0002634946")) # BAE Systems
+  expect_true(is_isin("DE0005810055")) # Deutsche Boerse
+
+  expect_false(is_isin("US0378331006")) # bad check digit
+  expect_false(is_isin("US037833100")) # too short
+  expect_false(is_isin("US03783310050")) # too long
+  expect_false(is_isin("us0378331005")) # lowercase
+  expect_false(is_isin(123L))
 })
 
 test_that("is_isbn works", {
