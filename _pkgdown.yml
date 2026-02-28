@@ -3,3 +3,34 @@ url: https://m-muecke.github.io/checkstring
 template:
   bootstrap: 5
   light-switch: true
+
+reference:
+  - title: String validation
+    contents:
+      - is_base64
+      - is_base64url
+      - is_cuid2
+      - is_email
+      - is_hex
+      - is_hostname
+      - is_ipv4
+      - is_mac
+      - is_md5
+      - is_nanoid
+      - is_semver
+      - is_sha256
+      - is_ulid
+      - is_url
+      - is_uuid
+  - title: Identifier validation
+    contents:
+      - is_bic
+      - is_doi
+      - is_iban
+      - is_isbn
+      - is_issn
+      - is_lei
+      - is_orcid
+  - title: Assertions
+    contents:
+      - assert_empty_dots
