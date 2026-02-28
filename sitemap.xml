@@ -17,8 +17,11 @@
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_isbn.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_issn.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_mac.html</loc></url>
+<url><loc>https://m-muecke.github.io/checkstring/reference/is_md5.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_nanoid.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_orcid.html</loc></url>
+<url><loc>https://m-muecke.github.io/checkstring/reference/is_semver.html</loc></url>
+<url><loc>https://m-muecke.github.io/checkstring/reference/is_sha256.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_ulid.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_url.html</loc></url>
 <url><loc>https://m-muecke.github.io/checkstring/reference/is_uuid.html</loc></url>

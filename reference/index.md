@@ -26,10 +26,16 @@
   : Check if an argument is an ISSN string
 - [`is_mac()`](https://m-muecke.github.io/checkstring/reference/is_mac.md)
   : Check if an argument is a MAC address string
+- [`is_md5()`](https://m-muecke.github.io/checkstring/reference/is_md5.md)
+  : Check if an argument is an MD5 hash string
 - [`is_nanoid()`](https://m-muecke.github.io/checkstring/reference/is_nanoid.md)
   : Check if an argument is a Nano ID string
 - [`is_orcid()`](https://m-muecke.github.io/checkstring/reference/is_orcid.md)
   : Check if an argument is an ORCID string
+- [`is_semver()`](https://m-muecke.github.io/checkstring/reference/is_semver.md)
+  : Check if an argument is a semantic versioning string
+- [`is_sha256()`](https://m-muecke.github.io/checkstring/reference/is_sha256.md)
+  : Check if an argument is a SHA-256 hash string
 - [`is_ulid()`](https://m-muecke.github.io/checkstring/reference/is_ulid.md)
   : Check if an argument is a ULID string
 - [`is_url()`](https://m-muecke.github.io/checkstring/reference/is_url.md)
