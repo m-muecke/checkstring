@@ -70,6 +70,40 @@ test_that("is_hex works", {
   expect_false(is_hex(123L))
 })
 
+test_that("is_md5 works", {
+  expect_true(is_md5("d41d8cd98f00b204e9800998ecf8427e"))
+  expect_true(is_md5("D41D8CD98F00B204E9800998ECF8427E"))
+
+  expect_false(is_md5("d41d8cd98f00b204e9800998ecf8427")) # too short
+  expect_false(is_md5("d41d8cd98f00b204e9800998ecf8427ea")) # too long
+  expect_false(is_md5("g41d8cd98f00b204e9800998ecf8427e")) # non-hex
+})
+
+test_that("is_sha256 works", {
+  expect_true(is_sha256("e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"))
+  expect_true(is_sha256("E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"))
+
+  expect_false(is_sha256("e3b0c44298fc1c149afbf4c8996fb924")) # too short (md5)
+  expect_false(is_sha256("g3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")) # non-hex
+})
+
+test_that("is_semver works", {
+  expect_true(is_semver("1.0.0"))
+  expect_true(is_semver("0.1.0"))
+  expect_true(is_semver("1.0.0-alpha"))
+  expect_true(is_semver("1.0.0-alpha.1"))
+  expect_true(is_semver("1.0.0+build.123"))
+  expect_true(is_semver("1.0.0-alpha.1+build.123"))
+  expect_true(is_semver("10.20.30"))
+
+  expect_false(is_semver("1.0")) # missing patch
+  expect_false(is_semver("1")) # just major
+  expect_false(is_semver("01.0.0")) # leading zero
+  expect_false(is_semver("1.0.0-")) # trailing hyphen
+  expect_false(is_semver("1.0.0+")) # trailing plus
+  expect_false(is_semver("v1.0.0")) # v prefix
+})
+
 test_that("is_hostname works", {
   expect_true(is_hostname("example.com"))
   expect_true(is_hostname("sub.domain.example.com"))

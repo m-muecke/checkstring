@@ -87,6 +87,42 @@ is_hex <- function(x) {
   is_string(x) && grepl("^[0-9a-f]+$", x, ignore.case = TRUE)
 }
 
+#' Check if an argument is an MD5 hash string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid MD5 hash string, `FALSE` otherwise.
+#' @export
+is_md5 <- function(x) {
+  is_string(x) && grepl("^[0-9a-f]{32}$", x, ignore.case = TRUE)
+}
+
+#' Check if an argument is a SHA-256 hash string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid SHA-256 hash string, `FALSE` otherwise.
+#' @export
+is_sha256 <- function(x) {
+  is_string(x) && grepl("^[0-9a-f]{64}$", x, ignore.case = TRUE)
+}
+
+#' Check if an argument is a semantic versioning string
+#'
+#' Validates semantic versioning 2.0.0 format, including optional pre-release and build metadata.
+#' Uses the official recommended regex from <https://semver.org/>.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid semver string, `FALSE` otherwise.
+#' @references
+#' <https://semver.org/>
+#' @export
+is_semver <- function(x) {
+  regex <- "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$" # nolint
+  is_string(x) && grepl(regex, x, perl = TRUE)
+}
+
 #' Check if an argument is a hostname string
 #'
 #' @param x (`any`)\cr
