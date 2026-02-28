@@ -202,9 +202,9 @@ is_orcid <- function(x) {
   for (d in as.integer(chars[1:15])) {
     total <- (total + d) * 2L
   }
-  result <- (12L - total %% 11L) %% 11L
-  expected <- if (result == 10L) "X" else as.character(result)
-  chars[16L] == expected
+  res <- (12L - total %% 11L) %% 11L
+  exp <- if (res == 10L) "X" else as.character(res) # nolint
+  chars[16L] == exp
 }
 
 #' Check if an argument is a valid SEDOL string
@@ -221,13 +221,13 @@ is_sedol <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$", x)) {
     return(FALSE)
   }
-  weights <- c(1L, 3L, 1L, 7L, 3L, 9L)
+  wt <- c(1L, 3L, 1L, 7L, 3L, 9L)
   chars <- strsplit(x, "", fixed = TRUE)[[1L]]
   total <- 0L
   for (i in seq_len(6L)) {
     ch <- chars[[i]]
     val <- if (grepl("[0-9]", ch)) as.integer(ch) else match(ch, LETTERS) + 9L
-    total <- total + val * weights[[i]]
+    total <- total + val * wt[[i]]
   }
   check <- (10L - (total %% 10L)) %% 10L
   as.integer(chars[[7L]]) == check
