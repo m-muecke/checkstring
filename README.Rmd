@@ -21,3 +21,32 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/checkstring)](https://CRAN.R-project.org/package=checkstring)
 <!-- badges: end -->
+
+The goal of checkstring is to provide string format validation functions for R,
+inspired by [Zod's](https://zod.dev/?id=strings) string validators.
+It extends the [checkmate](https://mllg.github.io/checkmate/) family of
+argument checks with common string format validations such as email addresses,
+UUIDs, URLs, IP addresses, and encodings.
+
+## Installation
+
+You can install the development version of checkstring from
+[GitHub](https://github.com/) with:
+
+```r
+# install.packages("pak")
+pak::pak("m-muecke/checkstring")
+```
+
+## Usage
+
+```{r}
+library(checkstring)
+
+is_email("user@example.com")
+is_uuid("550e8400-e29b-41d4-a716-446655440000")
+is_ipv4("192.168.1.1")
+is_hex("deadbeef")
+is_url("https://example.com")
+is_base64("SGVsbG8gV29ybGQ=")
+```
