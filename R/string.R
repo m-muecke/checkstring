@@ -42,6 +42,19 @@ is_base64url <- function(x) {
   is_string(x) && grepl(regex, x, perl = TRUE)
 }
 
+#' Check if an argument is a BIC/SWIFT code string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid BIC/SWIFT code string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/ISO_9362>
+#' <https://knowledge.xmldation.com/support/iso20022/general_rules/bic>
+#' @export
+is_bic <- function(x) {
+  is_string(x) && grepl("^[A-Z]{4}[A-Z]{2}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?$", x)
+}
+
 #' Check if an argument is url string
 #'
 #' @param x (`any`)\cr

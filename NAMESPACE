@@ -3,6 +3,7 @@
 export(assert_empty_dots)
 export(is_base64)
 export(is_base64url)
+export(is_bic)
 export(is_cuid2)
 export(is_doi)
 export(is_email)

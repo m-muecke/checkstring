@@ -43,6 +43,23 @@ test_that("is_base64url works", {
   expect_false(is_base64url("TWE*")) # invalid char
 })
 
+test_that("is_bic works", {
+  expect_true(is_bic("DEUTDEFF"))
+  expect_true(is_bic("DEUTDEFF500"))
+  expect_true(is_bic("BNPAFRPP"))
+  expect_true(is_bic("CHASUS33XXX"))
+
+  expect_false(is_bic("DEUT")) # too short
+  expect_false(is_bic("DEUTDEFF5000")) # too long
+  expect_false(is_bic("DEU1DEFF")) # digit in institution code
+  expect_false(is_bic("DEUTD1FF")) # digit in country code
+  expect_false(is_bic("DEUTDE0F")) # 0 not allowed in location position 7
+  expect_false(is_bic("DEUTDE1F")) # 1 not allowed in location position 7
+  expect_false(is_bic("DEUTDEFO")) # O not allowed in location position 8
+  expect_false(is_bic("deutdeff")) # lowercase
+  expect_false(is_bic(123L))
+})
+
 test_that("is_ipv4 works", {
   expect_true(is_ipv4("0.0.0.0"))
   expect_true(is_ipv4("127.0.0.1"))
