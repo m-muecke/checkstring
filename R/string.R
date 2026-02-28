@@ -87,6 +87,58 @@ is_hex <- function(x) {
   is_string(x) && grepl("^[0-9a-f]+$", x, ignore.case = TRUE)
 }
 
+#' Check if an argument is a hostname string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid hostname string, `FALSE` otherwise.
+#' @export
+is_hostname <- function(x) {
+  regex <- "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$" # nolint
+  is_string(x) && nchar(x) <= 253L && grepl(regex, x, ignore.case = TRUE)
+}
+
+#' Check if an argument is a MAC address string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid MAC address string, `FALSE` otherwise.
+#' @export
+is_mac <- function(x) {
+  regex <- "^[0-9a-f]{2}([:-])[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$"
+  is_string(x) && grepl(regex, x, ignore.case = TRUE)
+}
+
+#' Check if an argument is a ULID string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid ULID string, `FALSE` otherwise.
+#' @export
+is_ulid <- function(x) {
+  is_string(x) && grepl("^[0-9A-HJKMNP-TV-Z]{26}$", x)
+}
+
+#' Check if an argument is a Nano ID string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid Nano ID string, `FALSE` otherwise.
+#' @export
+is_nanoid <- function(x) {
+  is_string(x) && grepl("^[A-Za-z0-9_-]{21}$", x)
+}
+
+#' Check if an argument is a CUID2 string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid CUID2 string, `FALSE` otherwise.
+#' @export
+is_cuid2 <- function(x) {
+  is_string(x) && grepl("^[a-z][0-9a-z]{23,}$", x)
+}
+
 is_string <- function(x) {
   is.character(x) && length(x) == 1L && !is.na(x)
 }

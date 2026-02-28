@@ -69,3 +69,58 @@ test_that("is_hex works", {
   expect_false(is_hex("1a 2b")) # spaces
   expect_false(is_hex(123L))
 })
+
+test_that("is_hostname works", {
+  expect_true(is_hostname("example.com"))
+  expect_true(is_hostname("sub.domain.example.com"))
+  expect_true(is_hostname("localhost"))
+  expect_true(is_hostname("my-host"))
+  expect_true(is_hostname("a"))
+
+  expect_false(is_hostname("-example.com")) # starts with hyphen
+  expect_false(is_hostname("example-.com")) # ends with hyphen
+  expect_false(is_hostname("exam ple.com")) # space
+  expect_false(is_hostname(".example.com")) # leading dot
+  expect_false(is_hostname("")) # empty
+  expect_false(is_hostname(paste(rep("a", 254), collapse = ""))) # too long
+})
+
+test_that("is_mac works", {
+  expect_true(is_mac("00:1B:44:11:3A:B7"))
+  expect_true(is_mac("aa:bb:cc:dd:ee:ff"))
+  expect_true(is_mac("AA-BB-CC-DD-EE-FF"))
+
+  expect_false(is_mac("00:1B:44:11:3A")) # too short
+  expect_false(is_mac("00:1B:44:11:3A:B7:00")) # too long
+  expect_false(is_mac("00:1B:44:11:3A:GG")) # invalid hex
+  expect_false(is_mac("00:1B:44-11:3A:B7")) # mixed separators
+  expect_false(is_mac("001B44113AB7")) # no separators
+})
+
+test_that("is_ulid works", {
+  expect_true(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAV"))
+  expect_true(is_ulid("01H5V6E3MXHP0GGQB7K8CPWM1A"))
+
+  expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FA")) # too short
+  expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAVX")) # too long
+  expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAi")) # lowercase
+  expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAO")) # invalid char O
+})
+
+test_that("is_nanoid works", {
+  expect_true(is_nanoid("V1StGXR8_Z5jdHi6B-myT"))
+  expect_true(is_nanoid("012345678901234567890"))
+
+  expect_false(is_nanoid("V1StGXR8_Z5jdHi6B-my")) # too short
+  expect_false(is_nanoid("V1StGXR8_Z5jdHi6B-myTx")) # too long
+  expect_false(is_nanoid("V1StGXR8_Z5jdHi6B my")) # space
+})
+
+test_that("is_cuid2 works", {
+  expect_true(is_cuid2("ckopqwooh000001la8mbi2im9"))
+  expect_true(is_cuid2("abcdefghijklmnopqrstuvwx"))
+
+  expect_false(is_cuid2("Akopqwooh000001la8mbi2im9")) # starts uppercase
+  expect_false(is_cuid2("1kopqwooh000001la8mbi2im9")) # starts with digit
+  expect_false(is_cuid2("abc")) # too short
+})
