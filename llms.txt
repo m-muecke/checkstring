@@ -75,8 +75,14 @@ is_base64("SGVsbG8gV29ybGQ=")
 
 - [`is_bic()`](https://m-muecke.github.io/checkstring/reference/is_bic.md)
   : Check if an argument is a BIC/SWIFT code string
+- [`is_cusip()`](https://m-muecke.github.io/checkstring/reference/is_cusip.md)
+  : Check if an argument is a valid CUSIP string
 - [`is_doi()`](https://m-muecke.github.io/checkstring/reference/is_doi.md)
   : Check if an argument is a DOI string
+- [`is_figi()`](https://m-muecke.github.io/checkstring/reference/is_figi.md)
+  : Check if an argument is a valid FIGI string
+- [`is_isin()`](https://m-muecke.github.io/checkstring/reference/is_isin.md)
+  : Check if an argument is a valid ISIN string
 - [`is_iban()`](https://m-muecke.github.io/checkstring/reference/is_iban.md)
   : Check if an argument is a valid IBAN string
 - [`is_isbn()`](https://m-muecke.github.io/checkstring/reference/is_isbn.md)
@@ -87,6 +93,8 @@ is_base64("SGVsbG8gV29ybGQ=")
   : Check if an argument is a valid LEI string
 - [`is_orcid()`](https://m-muecke.github.io/checkstring/reference/is_orcid.md)
   : Check if an argument is an ORCID string
+- [`is_sedol()`](https://m-muecke.github.io/checkstring/reference/is_sedol.md)
+  : Check if an argument is a valid SEDOL string
 
 ## Assertions
 
