@@ -40,7 +40,7 @@ is_bic <- function(x) {
 #' <https://en.wikipedia.org/wiki/CUSIP>
 #' @export
 is_cusip <- function(x) {
-  if (!is_string(x) || !grepl("^[A-Z0-9]{9}$", x)) {
+  if (!is_string(x) || !grepl("^[A-Z0-9]{8}[0-9]$", x)) {
     return(FALSE)
   }
   chars <- strsplit(x, "", fixed = TRUE)[[1L]]
@@ -135,7 +135,7 @@ is_isbn <- function(x) {
   }
   digits <- gsub("[- ]", "", x)
   if (grepl("^\\d{9}[0-9X]$", digits)) {
-    d <- parse_check_digits(digits, 10L)
+    d <- parse_check_digits(digits)
     sum(d * 10:1) %% 11L == 0L
   } else if (grepl("^\\d{13}$", digits)) {
     d <- as.integer(strsplit(digits, "", fixed = TRUE)[[1L]])
@@ -159,7 +159,7 @@ is_issn <- function(x) {
   if (!is_string(x) || !grepl("^\\d{4}-\\d{3}[0-9X]$", x)) {
     return(FALSE)
   }
-  d <- parse_check_digits(gsub("-", "", x, fixed = TRUE), 8L)
+  d <- parse_check_digits(gsub("-", "", x, fixed = TRUE))
   sum(d * 8:1) %% 11L == 0L
 }
 
@@ -233,7 +233,7 @@ is_sedol <- function(x) {
   as.integer(chars[[7L]]) == check
 }
 
-parse_check_digits <- function(x, n) {
+parse_check_digits <- function(x) {
   chars <- strsplit(x, "", fixed = TRUE)[[1L]]
   vapply(chars, \(x) if (x == "X") 10L else as.integer(x), NA_integer_, USE.NAMES = FALSE)
 }

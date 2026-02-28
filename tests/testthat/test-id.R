@@ -37,6 +37,7 @@ test_that("is_cusip works", {
   expect_false(is_cusip("03783310")) # too short
   expect_false(is_cusip("0378331000")) # too long
   expect_false(is_cusip("03783310a")) # lowercase
+  expect_false(is_cusip("03783310A")) # letter in check digit position
   expect_false(is_cusip(123L))
 })
 
