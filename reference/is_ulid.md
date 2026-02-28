@@ -18,3 +18,7 @@ is_ulid(x)
 ## Value
 
 `TRUE` if `x` is a valid ULID string, `FALSE` otherwise.
+
+## References
+
+<https://github.com/ulid/spec>

@@ -18,3 +18,7 @@ is_hostname(x)
 ## Value
 
 `TRUE` if `x` is a valid hostname string, `FALSE` otherwise.
+
+## References
+
+<https://en.wikipedia.org/wiki/Hostname>

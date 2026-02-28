@@ -10,6 +10,8 @@
   : Check if an argument is base64url string
 - [`is_cuid2()`](https://m-muecke.github.io/checkstring/reference/is_cuid2.md)
   : Check if an argument is a CUID2 string
+- [`is_doi()`](https://m-muecke.github.io/checkstring/reference/is_doi.md)
+  : Check if an argument is a DOI string
 - [`is_email()`](https://m-muecke.github.io/checkstring/reference/is_email.md)
   : Check if an argument is a email address string
 - [`is_hex()`](https://m-muecke.github.io/checkstring/reference/is_hex.md)
@@ -18,10 +20,16 @@
   : Check if an argument is a hostname string
 - [`is_ipv4()`](https://m-muecke.github.io/checkstring/reference/is_ipv4.md)
   : Check if an argument is an IPv4 address string
+- [`is_isbn()`](https://m-muecke.github.io/checkstring/reference/is_isbn.md)
+  : Check if an argument is an ISBN string
+- [`is_issn()`](https://m-muecke.github.io/checkstring/reference/is_issn.md)
+  : Check if an argument is an ISSN string
 - [`is_mac()`](https://m-muecke.github.io/checkstring/reference/is_mac.md)
   : Check if an argument is a MAC address string
 - [`is_nanoid()`](https://m-muecke.github.io/checkstring/reference/is_nanoid.md)
   : Check if an argument is a Nano ID string
+- [`is_orcid()`](https://m-muecke.github.io/checkstring/reference/is_orcid.md)
+  : Check if an argument is an ORCID string
 - [`is_ulid()`](https://m-muecke.github.io/checkstring/reference/is_ulid.md)
   : Check if an argument is a ULID string
 - [`is_url()`](https://m-muecke.github.io/checkstring/reference/is_url.md)
