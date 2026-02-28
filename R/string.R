@@ -160,6 +160,56 @@ is_orcid <- function(x) {
   is_string(x) && grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)
 }
 
+#' Check if an argument is an ISBN string
+#'
+#' Validates ISBN-10 and ISBN-13 formats, including check digit verification.
+#' Hyphens and spaces are allowed as separators.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid ISBN string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/International_Standard_Book_Number>
+#' @export
+is_isbn <- function(x) {
+  if (!is_string(x)) {
+    return(FALSE)
+  }
+  digits <- gsub("[- ]", "", x)
+  if (grepl("^\\d{9}[0-9X]$", digits)) {
+    d <- parse_check_digits(digits, 10L)
+    sum(d * 10:1) %% 11L == 0L
+  } else if (grepl("^\\d{13}$", digits)) {
+    d <- as.integer(strsplit(digits, "", fixed = TRUE)[[1L]])
+    sum(d * rep_len(c(1L, 3L), 13L)) %% 10L == 0L
+  } else {
+    FALSE
+  }
+}
+
+#' Check if an argument is an ISSN string
+#'
+#' Validates ISSN format including check digit verification.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid ISSN string, `FALSE` otherwise.
+#' @references
+#' <https://www.loc.gov/issn/check.html>
+#' @export
+is_issn <- function(x) {
+  if (!is_string(x) || !grepl("^\\d{4}-\\d{3}[0-9X]$", x)) {
+    return(FALSE)
+  }
+  d <- parse_check_digits(gsub("-", "", x, fixed = TRUE), 8L)
+  sum(d * 8:1) %% 11L == 0L
+}
+
+parse_check_digits <- function(x, n) {
+  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
+  vapply(chars, \(x) if (x == "X") 10L else as.integer(x), NA_integer_, USE.NAMES = FALSE)
+}
+
 is_string <- function(x) {
   is.character(x) && length(x) == 1L && !is.na(x)
 }

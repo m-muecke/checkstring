@@ -147,3 +147,31 @@ test_that("is_orcid works", {
   expect_false(is_orcid("000000030918376")) # no hyphens
   expect_false(is_orcid("0000-0003-0918-376A")) # invalid check char
 })
+
+test_that("is_isbn works", {
+  # ISBN-10
+  expect_true(is_isbn("0306406152"))
+  expect_true(is_isbn("0-306-40615-2"))
+  expect_true(is_isbn("080442957X"))
+  # ISBN-13
+  expect_true(is_isbn("9780306406157"))
+  expect_true(is_isbn("978-0-306-40615-7"))
+  expect_true(is_isbn("978 0 306 40615 7"))
+
+  expect_false(is_isbn("0306406153")) # bad check digit
+  expect_false(is_isbn("9780306406158")) # bad check digit
+  expect_false(is_isbn("030640615")) # too short
+  expect_false(is_isbn("12345")) # wrong length
+  expect_false(is_isbn(123L))
+})
+
+test_that("is_issn works", {
+  expect_true(is_issn("0378-5955"))
+  expect_true(is_issn("0317-8471"))
+  expect_true(is_issn("1050-124X"))
+
+  expect_false(is_issn("0378-5956")) # bad check digit
+  expect_false(is_issn("03785955")) # no hyphen
+  expect_false(is_issn("0378-595")) # too short
+  expect_false(is_issn(123L))
+})
