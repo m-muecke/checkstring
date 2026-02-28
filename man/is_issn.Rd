@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Validates ISSN format including check digit verification.
 }
+\examples{
+is_issn("0378-5955")
+}
 \references{
 \url{https://www.loc.gov/issn/check.html}
 }

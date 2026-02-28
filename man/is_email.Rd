@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a email address string
 }
+\examples{
+is_email("user@example.com")
+}

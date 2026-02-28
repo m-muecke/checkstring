@@ -17,6 +17,9 @@ Object to check.}
 Validates FIGI (Financial Instrument Global Identifier) format including Luhn check digit
 verification.
 }
+\examples{
+is_figi("BBG000BLNNH6")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier}
 \url{https://www.openfigi.com/assets/content/figi-check-digit-2173341b2d.pdf}

@@ -7,6 +7,8 @@
 #' @return `TRUE` if `x` is a valid IBAN string, `FALSE` otherwise.
 #' @references
 #' <https://en.wikipedia.org/wiki/International_Bank_Account_Number>
+#' @examples
+#' is_iban("GB29NWBK60161331926819")
 #' @export
 is_iban <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$", x)) {
@@ -24,6 +26,8 @@ is_iban <- function(x) {
 #' @references
 #' <https://en.wikipedia.org/wiki/ISO_9362>
 #' <https://knowledge.xmldation.com/support/iso20022/general_rules/bic>
+#' @examples
+#' is_bic("DEUTDEFF")
 #' @export
 is_bic <- function(x) {
   is_string(x) && grepl("^[A-Z]{4}[A-Z]{2}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3})?$", x)
@@ -38,6 +42,8 @@ is_bic <- function(x) {
 #' @return `TRUE` if `x` is a valid CUSIP string, `FALSE` otherwise.
 #' @references
 #' <https://en.wikipedia.org/wiki/CUSIP>
+#' @examples
+#' is_cusip("037833100")
 #' @export
 is_cusip <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z0-9]{8}[0-9]$", x)) {
@@ -68,6 +74,8 @@ is_cusip <- function(x) {
 #' @references
 #' <https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier>
 #' <https://www.openfigi.com/assets/content/figi-check-digit-2173341b2d.pdf>
+#' @examples
+#' is_figi("BBG000BLNNH6")
 #' @export
 is_figi <- function(x) {
   if (!is_string(x) || !grepl("^BBG[B-DF-HJ-NP-TV-Z0-9]{8}[0-9]$", x)) {
@@ -94,6 +102,8 @@ is_figi <- function(x) {
 #' @return `TRUE` if `x` is a valid DOI string, `FALSE` otherwise.
 #' @references
 #' <https://www.doi.org/the-identifier/what-is-a-doi/>
+#' @examples
+#' is_doi("10.1038/nphys1170")
 #' @export
 is_doi <- function(x) {
   regex <- "^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$"
@@ -110,6 +120,8 @@ is_doi <- function(x) {
 #' @return `TRUE` if `x` is a valid ISIN string, `FALSE` otherwise.
 #' @references
 #' <https://en.wikipedia.org/wiki/International_Securities_Identification_Number>
+#' @examples
+#' is_isin("US0378331005")
 #' @export
 is_isin <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z]{2}[A-Z0-9]{9}[0-9]$", x)) {
@@ -128,6 +140,8 @@ is_isin <- function(x) {
 #' @return `TRUE` if `x` is a valid ISBN string, `FALSE` otherwise.
 #' @references
 #' <https://en.wikipedia.org/wiki/International_Standard_Book_Number>
+#' @examples
+#' is_isbn("978-0-306-40615-7")
 #' @export
 is_isbn <- function(x) {
   if (!is_string(x)) {
@@ -154,6 +168,8 @@ is_isbn <- function(x) {
 #' @return `TRUE` if `x` is a valid ISSN string, `FALSE` otherwise.
 #' @references
 #' <https://www.loc.gov/issn/check.html>
+#' @examples
+#' is_issn("0378-5955")
 #' @export
 is_issn <- function(x) {
   if (!is_string(x) || !grepl("^\\d{4}-\\d{3}[0-9X]$", x)) {
@@ -174,6 +190,8 @@ is_issn <- function(x) {
 #' @references
 #' <https://en.wikipedia.org/wiki/Legal_Entity_Identifier>
 #' <https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml>
+#' @examples
+#' is_lei("7H6GLXDRUGQFU57RNE97")
 #' @export
 is_lei <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z0-9]{18}[0-9]{2}$", x)) {
@@ -192,6 +210,8 @@ is_lei <- function(x) {
 #' @return `TRUE` if `x` is a valid ORCID string, `FALSE` otherwise.
 #' @references
 #' <https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier>
+#' @examples
+#' is_orcid("0000-0002-1825-0097")
 #' @export
 is_orcid <- function(x) {
   if (!is_string(x) || !grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)) {
@@ -216,6 +236,8 @@ is_orcid <- function(x) {
 #' @return `TRUE` if `x` is a valid SEDOL string, `FALSE` otherwise.
 #' @references
 #' <https://en.wikipedia.org/wiki/SEDOL>
+#' @examples
+#' is_sedol("0263494")
 #' @export
 is_sedol <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$", x)) {

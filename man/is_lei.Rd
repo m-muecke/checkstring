@@ -17,6 +17,9 @@ Object to check.}
 Validates LEI (Legal Entity Identifier) format including MOD-97-10 check digit verification
 (ISO/IEC 7064).
 }
+\examples{
+is_lei("7H6GLXDRUGQFU57RNE97")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/Legal_Entity_Identifier}
 \url{https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml}

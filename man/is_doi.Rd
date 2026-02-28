@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Check if an argument is a DOI string
 }
+\examples{
+is_doi("10.1038/nphys1170")
+}
 \references{
 \url{https://www.doi.org/the-identifier/what-is-a-doi/}
 }

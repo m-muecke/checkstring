@@ -17,6 +17,9 @@ Object to check.}
 Validates ORCID format including ISO/IEC 7064:2003, MOD 11-2 check digit
 verification.
 }
+\examples{
+is_orcid("0000-0002-1825-0097")
+}
 \references{
 \url{https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier}
 }

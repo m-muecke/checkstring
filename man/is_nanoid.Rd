@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a Nano ID string
 }
+\examples{
+is_nanoid("V1StGXR8_Z5jdHi6B-myT")
+}

@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a CUID2 string
 }
+\examples{
+is_cuid2("ckopqwooh000001la8mbi2im9")
+}

@@ -16,3 +16,6 @@ Ellipsis arguments to check.}
 \description{
 Assert that dots are empty
 }
+\examples{
+assert_empty_dots()
+}

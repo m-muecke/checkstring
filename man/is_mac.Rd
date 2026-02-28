@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a MAC address string
 }
+\examples{
+is_mac("00:1B:44:11:3A:B7")
+}

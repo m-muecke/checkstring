@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a base64 string
 }
+\examples{
+is_base64("SGVsbG8gV29ybGQ=")
+}

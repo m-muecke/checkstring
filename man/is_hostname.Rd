@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Check if an argument is a hostname string
 }
+\examples{
+is_hostname("example.com")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/Hostname}
 }

@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is an MD5 hash string
 }
+\examples{
+is_md5("d41d8cd98f00b204e9800998ecf8427e")
+}

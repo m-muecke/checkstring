@@ -17,6 +17,9 @@ Object to check.}
 Validates semantic versioning 2.0.0 format, including optional pre-release and build metadata.
 Uses the official recommended regex from \url{https://semver.org/}.
 }
+\examples{
+is_semver("1.0.0")
+}
 \references{
 \url{https://semver.org/}
 }

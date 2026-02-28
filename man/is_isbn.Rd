@@ -17,6 +17,9 @@ Object to check.}
 Validates ISBN-10 and ISBN-13 formats, including check digit verification.
 Hyphens and spaces are allowed as separators.
 }
+\examples{
+is_isbn("978-0-306-40615-7")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/International_Standard_Book_Number}
 }

@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Validates CUSIP format including Luhn-variant check digit verification.
 }
+\examples{
+is_cusip("037833100")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/CUSIP}
 }

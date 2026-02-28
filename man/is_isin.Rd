@@ -17,6 +17,9 @@ Object to check.}
 Validates ISIN (International Securities Identification Number) format including Luhn check
 digit verification.
 }
+\examples{
+is_isin("US0378331005")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/International_Securities_Identification_Number}
 }

@@ -3,6 +3,8 @@
 #' @param ... (`any`)\cr
 #'   Ellipsis arguments to check.
 #' @return `NULL` invisibly if empty, otherwise throws an error.
+#' @examples
+#' assert_empty_dots()
 #' @export
 assert_empty_dots <- function(...) {
   n <- ...length()

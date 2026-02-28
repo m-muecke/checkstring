@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is an IPv4 address string
 }
+\examples{
+is_ipv4("192.168.1.1")
+}

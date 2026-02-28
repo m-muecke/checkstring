@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Validates SEDOL format including weighted check digit verification.
 }
+\examples{
+is_sedol("0263494")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/SEDOL}
 }

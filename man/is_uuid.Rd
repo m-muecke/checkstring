@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is an UUID string
 }
+\examples{
+is_uuid("550e8400-e29b-41d4-a716-446655440000")
+}

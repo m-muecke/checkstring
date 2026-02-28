@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Check if an argument is a BIC/SWIFT code string
 }
+\examples{
+is_bic("DEUTDEFF")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/ISO_9362}
 \url{https://knowledge.xmldation.com/support/iso20022/general_rules/bic}

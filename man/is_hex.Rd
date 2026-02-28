@@ -17,3 +17,6 @@ otherwise.
 \description{
 Check if an argument is a hexadecimal string
 }
+\examples{
+is_hex("deadbeef")
+}

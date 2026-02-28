@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is url string
 }
+\examples{
+is_url("https://example.com")
+}

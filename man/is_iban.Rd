@@ -16,6 +16,9 @@ Object to check.}
 \description{
 Validates IBAN format including MOD-97-10 check digit verification (ISO/IEC 7064).
 }
+\examples{
+is_iban("GB29NWBK60161331926819")
+}
 \references{
 \url{https://en.wikipedia.org/wiki/International_Bank_Account_Number}
 }
