@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a ULID string
 }
+\references{
+\url{https://github.com/ulid/spec}
+}

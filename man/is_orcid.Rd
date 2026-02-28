@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is an ORCID string
 }
+\references{
+\url{https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier}
+}

@@ -92,6 +92,8 @@ is_hex <- function(x) {
 #' @param x (`any`)\cr
 #'   Object to check.
 #' @return `TRUE` if `x` is a valid hostname string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/Hostname>
 #' @export
 is_hostname <- function(x) {
   regex <- "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$" # nolint
@@ -114,6 +116,8 @@ is_mac <- function(x) {
 #' @param x (`any`)\cr
 #'   Object to check.
 #' @return `TRUE` if `x` is a valid ULID string, `FALSE` otherwise.
+#' @references
+#' <https://github.com/ulid/spec>
 #' @export
 is_ulid <- function(x) {
   is_string(x) && grepl("^[0-9A-HJKMNP-TV-Z]{26}$", x)
@@ -144,6 +148,8 @@ is_cuid2 <- function(x) {
 #' @param x (`any`)\cr
 #'   Object to check.
 #' @return `TRUE` if `x` is a valid DOI string, `FALSE` otherwise.
+#' @references
+#' <https://www.doi.org/the-identifier/what-is-a-doi/>
 #' @export
 is_doi <- function(x) {
   regex <- "^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$"
@@ -155,6 +161,8 @@ is_doi <- function(x) {
 #' @param x (`any`)\cr
 #'   Object to check.
 #' @return `TRUE` if `x` is a valid ORCID string, `FALSE` otherwise.
+#' @references
+#' <https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier>
 #' @export
 is_orcid <- function(x) {
   is_string(x) && grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)

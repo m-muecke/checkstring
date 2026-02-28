@@ -16,3 +16,6 @@ Object to check.}
 \description{
 Check if an argument is a DOI string
 }
+\references{
+\url{https://www.doi.org/the-identifier/what-is-a-doi/}
+}
