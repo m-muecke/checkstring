@@ -10,11 +10,11 @@
 Source:
 [`DESCRIPTION`](https://github.com/m-muecke/checkstring/blob/main/DESCRIPTION)
 
-Mücke M (2026). *checkstring: Common string regex checks*. R package
-version 0.1.0.9000, <https://m-muecke.github.io/checkstring/>.
+Mücke M (2026). *checkstring: Common String Format Validation*. R
+package version 0.1.0.9000, <https://m-muecke.github.io/checkstring/>.
 
     @Manual{,
-      title = {checkstring: Common string regex checks},
+      title = {checkstring: Common String Format Validation},
       author = {Maximilian Mücke},
       year = {2026},
       note = {R package version 0.1.0.9000},
