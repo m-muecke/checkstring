@@ -139,6 +139,27 @@ is_cuid2 <- function(x) {
   is_string(x) && grepl("^[a-z][0-9a-z]{23,}$", x)
 }
 
+#' Check if an argument is a DOI string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid DOI string, `FALSE` otherwise.
+#' @export
+is_doi <- function(x) {
+  regex <- "^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$"
+  is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
+}
+
+#' Check if an argument is an ORCID string
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid ORCID string, `FALSE` otherwise.
+#' @export
+is_orcid <- function(x) {
+  is_string(x) && grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)
+}
+
 is_string <- function(x) {
   is.character(x) && length(x) == 1L && !is.na(x)
 }

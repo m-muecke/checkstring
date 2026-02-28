@@ -124,3 +124,26 @@ test_that("is_cuid2 works", {
   expect_false(is_cuid2("1kopqwooh000001la8mbi2im9")) # starts with digit
   expect_false(is_cuid2("abc")) # too short
 })
+
+test_that("is_doi works", {
+  expect_true(is_doi("10.1000/xyz123"))
+  expect_true(is_doi("10.1038/nphys1170"))
+  expect_true(is_doi("10.1002/0470841559.ch1"))
+  expect_true(is_doi("10.1093/ajae/aaq063"))
+
+  expect_false(is_doi("11.1000/xyz123")) # wrong prefix
+  expect_false(is_doi("10.12/xyz")) # registrant too short
+  expect_false(is_doi("10.1000/")) # empty suffix
+  expect_false(is_doi("10.1000")) # no slash
+})
+
+test_that("is_orcid works", {
+  expect_true(is_orcid("0000-0003-0918-3766"))
+  expect_true(is_orcid("0000-0002-1825-009X"))
+  expect_true(is_orcid("0000-0001-5000-0007"))
+
+  expect_false(is_orcid("0000-0003-0918-376")) # too short
+  expect_false(is_orcid("0000-0003-0918-37666")) # too long
+  expect_false(is_orcid("000000030918376")) # no hyphens
+  expect_false(is_orcid("0000-0003-0918-376A")) # invalid check char
+})
