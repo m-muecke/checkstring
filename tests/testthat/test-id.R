@@ -48,7 +48,8 @@ test_that("is_figi works", {
   expect_false(is_figi("BBG000BLNNH7")) # bad check digit
   expect_false(is_figi("BBG000BLNNH")) # too short
   expect_false(is_figi("BBG000BLNNH60")) # too long
-  expect_false(is_figi("XYG000BLNNH6")) # wrong prefix
+  expect_false(is_figi("ABG000BLNNH6")) # vowel A in prefix
+  expect_false(is_figi("BBB000BLNNH6")) # 3rd char must be G
   expect_false(is_figi("BBG000BLANH6")) # vowel A not allowed
   expect_false(is_figi(123L))
 })
