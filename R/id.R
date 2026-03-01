@@ -49,18 +49,12 @@ is_cusip <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z0-9]{8}[0-9]$", x)) {
     return(FALSE)
   }
-  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
-  total <- 0L
-  for (i in seq_len(8L)) {
-    ch <- chars[[i]]
-    val <- if (grepl("[0-9]", ch)) as.integer(ch) else match(ch, LETTERS) + 9L
-    if (i %% 2L == 0L) {
-      val <- val * 2L
-    }
-    total <- total + (val %/% 10L) + (val %% 10L)
-  }
-  check <- (10L - (total %% 10L)) %% 10L
-  as.integer(chars[[9L]]) == check
+  vals <- char_to_val(substr(x, 1L, 8L))
+  pos <- seq.int(2L, 8L, by = 2L)
+  vals[pos] <- vals[pos] * 2L
+  total <- sum(vals %/% 10L + vals %% 10L)
+  check <- (10L - total %% 10L) %% 10L
+  as.integer(substr(x, 9L, 9L)) == check
 }
 
 #' Check if an argument is a valid FIGI string
@@ -81,18 +75,12 @@ is_figi <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z]{2}G[B-DF-HJ-NP-TV-Z0-9]{8}[0-9]$", x)) {
     return(FALSE)
   }
-  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
-  total <- 0L
-  for (i in seq_len(11L)) {
-    ch <- chars[[i]]
-    val <- if (grepl("[0-9]", ch)) as.integer(ch) else match(ch, LETTERS) + 9L
-    if (i %% 2L == 0L) {
-      val <- val * 2L
-    }
-    total <- total + (val %/% 10L) + (val %% 10L)
-  }
-  check <- (10L - (total %% 10L)) %% 10L
-  as.integer(chars[[12L]]) == check
+  vals <- char_to_val(substr(x, 1L, 11L))
+  pos <- seq.int(2L, 10L, by = 2L)
+  vals[pos] <- vals[pos] * 2L
+  total <- sum(vals %/% 10L + vals %% 10L)
+  check <- (10L - total %% 10L) %% 10L
+  as.integer(substr(x, 12L, 12L)) == check
 }
 
 #' Check if an argument is a DOI string
@@ -127,7 +115,13 @@ is_isin <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z]{2}[A-Z0-9]{9}[0-9]$", x)) {
     return(FALSE)
   }
-  luhn_valid(x)
+  vals <- char_to_val(x)
+  digits <- unlist(lapply(vals, \(v) if (v >= 10L) c(v %/% 10L, v %% 10L) else v))
+  n <- length(digits)
+  pos <- seq.int(from = n - 1L, to = 1L, by = -2L)
+  digits[pos] <- digits[pos] * 2L
+  digits[pos] <- ifelse(digits[pos] > 9L, digits[pos] - 9L, digits[pos])
+  sum(digits) %% 10L == 0L
 }
 
 #' Check if an argument is an ISBN string
@@ -152,7 +146,7 @@ is_isbn <- function(x) {
     d <- parse_check_digits(digits)
     sum(d * 10:1) %% 11L == 0L
   } else if (grepl("^\\d{13}$", digits)) {
-    d <- as.integer(strsplit(digits, "", fixed = TRUE)[[1L]])
+    d <- utf8ToInt(digits) - 48L
     sum(d * rep_len(c(1L, 3L), 13L)) %% 10L == 0L
   } else {
     FALSE
@@ -243,55 +237,32 @@ is_sedol <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$", x)) {
     return(FALSE)
   }
-  wt <- c(1L, 3L, 1L, 7L, 3L, 9L)
-  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
-  total <- 0L
-  for (i in seq_len(6L)) {
-    ch <- chars[[i]]
-    val <- if (grepl("[0-9]", ch)) as.integer(ch) else match(ch, LETTERS) + 9L
-    total <- total + val * wt[[i]]
-  }
-  check <- (10L - (total %% 10L)) %% 10L
-  as.integer(chars[[7L]]) == check
+  vals <- char_to_val(substr(x, 1L, 6L))
+  total <- sum(vals * c(1L, 3L, 1L, 7L, 3L, 9L))
+  check <- (10L - total %% 10L) %% 10L
+  as.integer(substr(x, 7L, 7L)) == check
+}
+
+char_to_val <- function(x) {
+  x <- utf8ToInt(x)
+  ifelse(x >= 65L, x - 55L, x - 48L)
 }
 
 parse_check_digits <- function(x) {
-  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
-  vapply(chars, \(x) if (x == "X") 10L else as.integer(x), NA_integer_, USE.NAMES = FALSE)
+  x <- utf8ToInt(x)
+  ifelse(x == 88L, 10L, x - 48L)
 }
 
 mod97 <- function(x) {
-  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
+  codes <- utf8ToInt(x)
+  vals <- ifelse(codes >= 65L, codes - 55L, codes - 48L)
   rem <- 0L
-  for (ch in chars) {
-    if (grepl("[A-Z]", ch)) {
-      rem <- (rem * 100L + match(ch, LETTERS) + 9L) %% 97L
+  for (v in vals) {
+    if (v >= 10L) {
+      rem <- (rem * 100L + v) %% 97L
     } else {
-      rem <- (rem * 10L + as.integer(ch)) %% 97L
+      rem <- (rem * 10L + v) %% 97L
     }
   }
   rem
-}
-
-luhn_valid <- function(x) {
-  chars <- strsplit(x, "", fixed = TRUE)[[1L]]
-  digits <- unlist(lapply(chars, function(ch) {
-    if (grepl("[A-Z]", ch)) {
-      val <- match(ch, LETTERS) + 9L
-      c(val %/% 10L, val %% 10L)
-    } else {
-      as.integer(ch)
-    }
-  }))
-  n <- length(digits)
-  total <- 0L
-  for (i in seq_len(n)) {
-    d <- digits[[n - i + 1L]]
-    if (i %% 2L == 0L) {
-      d <- d * 2L
-      if (d > 9L) d <- d - 9L
-    }
-    total <- total + d
-  }
-  total %% 10L == 0L
 }
