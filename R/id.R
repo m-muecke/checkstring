@@ -133,8 +133,8 @@ is_isin <- function(x) {
       digits[k] <- v
     }
   }
-  digits <- digits[1:k]
-  pos <- seq.int(from = k - 1L, to = 1L, by = -2L)
+  digits <- digits[seq_len(k)]
+  pos <- seq.int(k - 1L, 1L, by = -2L)
   digits[pos] <- digits[pos] * 2L
   digits[pos] <- ifelse(digits[pos] > 9L, digits[pos] - 9L, digits[pos])
   sum(digits) %% 10L == 0L
@@ -232,7 +232,7 @@ is_orcid <- function(x) {
   codes <- utf8ToInt(x)
   d <- codes[c(1:4, 6:9, 11:14, 16:19)] - 48L
   total <- 0L
-  for (i in 1:15) {
+  for (i in seq_len(15L)) {
     total <- (total + d[i]) * 2L
   }
   check <- (12L - total %% 11L) %% 11L
@@ -257,7 +257,8 @@ is_sedol <- function(x) {
   }
   codes <- utf8ToInt(x)
   vals <- char_to_val(codes[1:6])
-  total <- sum(vals * c(1L, 3L, 1L, 7L, 3L, 9L))
+  wt <- c(1L, 3L, 1L, 7L, 3L, 9L)
+  total <- sum(vals * wt)
   check <- (10L - total %% 10L) %% 10L
   codes[7L] - 48L == check
 }
