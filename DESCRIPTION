@@ -4,9 +4,10 @@ Version: 0.1.0
 Authors@R:
     person("Maximilian", "Mücke", , "muecke.maximilian@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0000-9432-9795"))
-Description: Validates common string formats such as email addresses,
-    UUIDs, URLs, IP addresses, and financial identifiers like ISIN, CUSIP,
-    and IBAN, including check digit verification.
+Description: Validates common string formats including financial
+    identifiers (ISIN, CUSIP, SEDOL, FIGI, IBAN, LEI), publication
+    identifiers (ISBN, ISSN, DOI, ORCID), and general formats (email,
+    UUID, URL, semver), with check digit verification where applicable.
 License: MIT + file LICENSE
 URL: https://m-muecke.github.io/checkstring/,
     https://github.com/m-muecke/checkstring
