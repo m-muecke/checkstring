@@ -10,6 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/checkstring)](https://CRAN.R-project.org/package=checkstring)
+[![R-universe
+version](https://m-muecke.r-universe.dev/checkstring/badges/version)](https://m-muecke.r-universe.dev/checkstring)
 <!-- badges: end -->
 
 The goal of checkstring is to provide string format validation functions
@@ -22,8 +24,14 @@ CUSIP, IBAN, ISBN, and ORCID, including check digit verification.
 
 ## Installation
 
-You can install the development version of checkstring from
-[GitHub](https://github.com/) with:
+You can install the released version of **checkstring** from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("checkstring")
+```
+
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
