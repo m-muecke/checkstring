@@ -16,7 +16,8 @@ is_iban <- function(x) {
   }
   codes <- utf8ToInt(x)
   n <- length(codes)
-  mod97(c(codes[5:n], codes[1:4])) == 1L
+  codes <- c(codes[5:n], codes[1:4])
+  mod97(codes) == 1L
 }
 
 #' Check if an argument is a BIC/SWIFT code string
