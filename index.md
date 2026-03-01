@@ -40,3 +40,12 @@ is_isin("US0378331005")
 is_iban("GB29NWBK60161331926819")
 #> [1] TRUE
 ```
+
+## Related work
+
+- [checkmate](https://github.com/mllg/checkmate): Fast and versatile
+  argument checks for R
+- [figir](https://github.com/philaris/figir): Check validity of FIGI,
+  CUSIP, ISIN, SEDOL
+- [libbib](https://github.com/NYPL/libbib): Validate and normalize ISBN,
+  ISSN, LCCN

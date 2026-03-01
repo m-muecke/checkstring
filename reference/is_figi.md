@@ -23,7 +23,7 @@ is_figi(x)
 ## References
 
 <https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier>
-<https://www.openfigi.com/assets/content/figi-check-digit-2173341b2d.pdf>
+<https://www.openfigi.com/about/overview>
 
 ## Examples
 
