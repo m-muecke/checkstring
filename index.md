@@ -10,8 +10,14 @@ CUSIP, IBAN, ISBN, and ORCID, including check digit verification.
 
 ## Installation
 
-You can install the development version of checkstring from
-[GitHub](https://github.com/) with:
+You can install the released version of **checkstring** from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("checkstring")
+```
+
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
