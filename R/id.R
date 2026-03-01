@@ -14,8 +14,9 @@ is_iban <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z]{2}[0-9]{2}[A-Z0-9]{11,30}$", x)) {
     return(FALSE)
   }
-  x <- paste0(substring(x, 5L), substring(x, 1L, 4L))
-  mod97(x) == 1L
+  codes <- utf8ToInt(x)
+  n <- length(codes)
+  mod97(c(codes[5:n], codes[1:4])) == 1L
 }
 
 #' Check if an argument is a BIC/SWIFT code string
@@ -49,12 +50,13 @@ is_cusip <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z0-9]{8}[0-9]$", x)) {
     return(FALSE)
   }
-  vals <- char_to_val(substr(x, 1L, 8L))
+  codes <- utf8ToInt(x)
+  vals <- char_to_val(codes[1:8])
   pos <- seq.int(2L, 8L, by = 2L)
   vals[pos] <- vals[pos] * 2L
   total <- sum(vals %/% 10L + vals %% 10L)
   check <- (10L - total %% 10L) %% 10L
-  as.integer(substr(x, 9L, 9L)) == check
+  codes[9L] - 48L == check
 }
 
 #' Check if an argument is a valid FIGI string
@@ -75,12 +77,13 @@ is_figi <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z]{2}G[B-DF-HJ-NP-TV-Z0-9]{8}[0-9]$", x)) {
     return(FALSE)
   }
-  vals <- char_to_val(substr(x, 1L, 11L))
+  codes <- utf8ToInt(x)
+  vals <- char_to_val(codes[1:11])
   pos <- seq.int(2L, 10L, by = 2L)
   vals[pos] <- vals[pos] * 2L
   total <- sum(vals %/% 10L + vals %% 10L)
   check <- (10L - total %% 10L) %% 10L
-  as.integer(substr(x, 12L, 12L)) == check
+  codes[12L] - 48L == check
 }
 
 #' Check if an argument is a DOI string
@@ -115,10 +118,23 @@ is_isin <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z]{2}[A-Z0-9]{9}[0-9]$", x)) {
     return(FALSE)
   }
-  vals <- char_to_val(x)
-  digits <- unlist(lapply(vals, \(v) if (v >= 10L) c(v %/% 10L, v %% 10L) else v))
-  n <- length(digits)
-  pos <- seq.int(from = n - 1L, to = 1L, by = -2L)
+  codes <- utf8ToInt(x)
+  vals <- char_to_val(codes)
+  digits <- integer(24L)
+  k <- 0L
+  for (v in vals) {
+    if (v >= 10L) {
+      k <- k + 1L
+      digits[k] <- v %/% 10L
+      k <- k + 1L
+      digits[k] <- v %% 10L
+    } else {
+      k <- k + 1L
+      digits[k] <- v
+    }
+  }
+  digits <- digits[1:k]
+  pos <- seq.int(from = k - 1L, to = 1L, by = -2L)
   digits[pos] <- digits[pos] * 2L
   digits[pos] <- ifelse(digits[pos] > 9L, digits[pos] - 9L, digits[pos])
   sum(digits) %% 10L == 0L
@@ -143,7 +159,8 @@ is_isbn <- function(x) {
   }
   digits <- gsub("[- ]", "", x)
   if (grepl("^\\d{9}[0-9X]$", digits)) {
-    d <- parse_check_digits(digits)
+    codes <- utf8ToInt(digits)
+    d <- parse_check_digits(codes)
     sum(d * 10:1) %% 11L == 0L
   } else if (grepl("^\\d{13}$", digits)) {
     d <- utf8ToInt(digits) - 48L
@@ -169,7 +186,8 @@ is_issn <- function(x) {
   if (!is_string(x) || !grepl("^\\d{4}-\\d{3}[0-9X]$", x)) {
     return(FALSE)
   }
-  d <- parse_check_digits(gsub("-", "", x, fixed = TRUE))
+  codes <- utf8ToInt(x)
+  d <- parse_check_digits(codes[c(1:4, 6:9)])
   sum(d * 8:1) %% 11L == 0L
 }
 
@@ -191,7 +209,7 @@ is_lei <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z0-9]{18}[0-9]{2}$", x)) {
     return(FALSE)
   }
-  mod97(x) == 1L
+  mod97(utf8ToInt(x)) == 1L
 }
 
 #' Check if an argument is an ORCID string
@@ -211,14 +229,14 @@ is_orcid <- function(x) {
   if (!is_string(x) || !grepl("^\\d{4}-\\d{4}-\\d{4}-\\d{3}[0-9X]$", x)) {
     return(FALSE)
   }
-  chars <- strsplit(gsub("-", "", x, fixed = TRUE), "", fixed = TRUE)[[1L]]
+  codes <- utf8ToInt(x)
+  d <- codes[c(1:4, 6:9, 11:14, 16:19)] - 48L
   total <- 0L
-  for (d in as.integer(chars[1:15])) {
-    total <- (total + d) * 2L
+  for (i in 1:15) {
+    total <- (total + d[i]) * 2L
   }
-  res <- (12L - total %% 11L) %% 11L
-  exp <- if (res == 10L) "X" else as.character(res) # nolint
-  chars[16L] == exp
+  check <- (12L - total %% 11L) %% 11L
+  if (check == 10L) d[16L] + 48L == 88L else d[16L] == check
 }
 
 #' Check if an argument is a valid SEDOL string
@@ -237,24 +255,22 @@ is_sedol <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z0-9]{6}[0-9]$", x)) {
     return(FALSE)
   }
-  vals <- char_to_val(substr(x, 1L, 6L))
+  codes <- utf8ToInt(x)
+  vals <- char_to_val(codes[1:6])
   total <- sum(vals * c(1L, 3L, 1L, 7L, 3L, 9L))
   check <- (10L - total %% 10L) %% 10L
-  as.integer(substr(x, 7L, 7L)) == check
+  codes[7L] - 48L == check
 }
 
 char_to_val <- function(x) {
-  x <- utf8ToInt(x)
   ifelse(x >= 65L, x - 55L, x - 48L)
 }
 
 parse_check_digits <- function(x) {
-  x <- utf8ToInt(x)
   ifelse(x == 88L, 10L, x - 48L)
 }
 
-mod97 <- function(x) {
-  codes <- utf8ToInt(x)
+mod97 <- function(codes) {
   vals <- ifelse(codes >= 65L, codes - 55L, codes - 48L)
   rem <- 0L
   for (v in vals) {
