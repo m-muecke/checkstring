@@ -208,7 +208,3 @@ is_nanoid <- function(x) {
 is_cuid2 <- function(x) {
   is_string(x) && grepl("^[a-z][0-9a-z]{23,}$", x)
 }
-
-is_string <- function(x) {
-  is.character(x) && length(x) == 1L && !is.na(x)
-}

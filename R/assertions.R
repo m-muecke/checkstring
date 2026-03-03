@@ -29,3 +29,7 @@ assert_empty_dots <- function(...) {
     call. = FALSE
   )
 }
+
+is_string <- function(x) {
+  is.character(x) && length(x) == 1L && !is.na(x)
+}
