@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/m-muecke/checkstring/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/m-muecke/checkstring/blob/v0.1.0/DESCRIPTION)
 
 Mücke M (2026). *checkstring: Common String Format Validation*. R
 package version 0.1.0, <https://m-muecke.github.io/checkstring/>.
