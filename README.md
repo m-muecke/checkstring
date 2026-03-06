@@ -7,9 +7,11 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/checkstring)](https://CRAN.R-project.org/package=checkstring)
-[![R-CMD-check](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/checkstring/actions/workflows/R-CMD-check.yaml)
+[![R-universe
+version](https://m-muecke.r-universe.dev/checkstring/badges/version)](https://m-muecke.r-universe.dev/checkstring)
 <!-- badges: end -->
 
 The goal of checkstring is to provide string format validation functions
