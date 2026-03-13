@@ -62,6 +62,14 @@ is_iban("GB29NWBK60161331926819")
 
 - [`is_base64()`](https://m-muecke.github.io/checkstring/reference/is_base64.md)
   : Check if an argument is a base64 string
+- [`is_color_hex()`](https://m-muecke.github.io/checkstring/reference/is_color_hex.md)
+  : Check if an argument is a hex color string
+- [`is_iso_date()`](https://m-muecke.github.io/checkstring/reference/is_iso_date.md)
+  : Check if an argument is an ISO 8601 date string
+- [`is_iso_datetime()`](https://m-muecke.github.io/checkstring/reference/is_iso_datetime.md)
+  : Check if an argument is an ISO 8601 datetime string
+- [`is_mime()`](https://m-muecke.github.io/checkstring/reference/is_mime.md)
+  : Check if an argument is a MIME type string
 - [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md)
   : Check if an argument is base64url string
 - [`is_cuid2()`](https://m-muecke.github.io/checkstring/reference/is_cuid2.md)
