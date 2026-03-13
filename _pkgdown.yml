@@ -8,6 +8,10 @@ reference:
   - title: String validation
     contents:
       - is_base64
+      - is_color_hex
+      - is_iso_date
+      - is_iso_datetime
+      - is_mime
       - is_base64url
       - is_cuid2
       - is_email

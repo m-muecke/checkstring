@@ -1,3 +1,81 @@
+#' Check if an argument is an ISO 8601 date string
+#'
+#' Validates the `YYYY-MM-DD` format with calendar correctness, including leap year handling.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid ISO 8601 date string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/ISO_8601>
+#' @examples
+#' is_iso_date("2024-01-15")
+#' is_iso_date("2024-02-30")
+#' @export
+is_iso_date <- function(x) {
+  if (!is_string(x) || !grepl("^\\d{4}-\\d{2}-\\d{2}$", x)) {
+    return(FALSE)
+  }
+  parts <- as.integer(strsplit(x, "-", fixed = TRUE)[[1L]])
+  year <- parts[[1L]]
+  month <- parts[[2L]]
+  day <- parts[[3L]]
+  if (month < 1L || month > 12L || day < 1L) {
+    return(FALSE)
+  }
+  days_in_month <- c(31L, 28L, 31L, 30L, 31L, 30L, 31L, 31L, 30L, 31L, 30L, 31L)
+  if (month == 2L && (year %% 4L == 0L && (year %% 100L != 0L || year %% 400L == 0L))) {
+    days_in_month[[2L]] <- 29L
+  }
+  day <= days_in_month[[month]]
+}
+
+#' Check if an argument is an ISO 8601 datetime string
+#'
+#' Validates the `YYYY-MM-DDTHH:MM:SS[.sss]` format with calendar correctness, including leap year
+#' handling. The timezone designator is optional and can be `Z` or an offset like `+05:30`.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid ISO 8601 datetime string, `FALSE` otherwise.
+#' @references
+#' <https://en.wikipedia.org/wiki/ISO_8601>
+#' @examples
+#' is_iso_datetime("2024-01-15T12:00:00Z")
+#' is_iso_datetime("2024-01-15T12:00:00+05:30")
+#' is_iso_datetime("2024-01-15T12:00:00")
+#' @export
+is_iso_datetime <- function(x) {
+  regex <- "^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})(\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
+  if (!is_string(x) || !grepl(regex, x, perl = TRUE)) {
+    return(FALSE)
+  }
+  m <- regmatches(x, regexec(regex, x, perl = TRUE))[[1L]]
+  if (!is_iso_date(m[[2L]])) {
+    return(FALSE)
+  }
+  hour <- as.integer(m[[3L]])
+  min <- as.integer(m[[4L]])
+  sec <- as.integer(m[[5L]])
+  hour <= 23L && min <= 59L && sec <= 59L
+}
+
+#' Check if an argument is a hex color string
+#'
+#' Validates hex color codes in `#RGB`, `#RGBA`, `#RRGGBB`, or `#RRGGBBAA` format.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid hex color string, `FALSE` otherwise.
+#' @references
+#' <https://www.w3.org/TR/css-color-4/#hex-notation>
+#' @examples
+#' is_color_hex("#FF5733")
+#' is_color_hex("#fff")
+#' @export
+is_color_hex <- function(x) {
+  is_string(x) && grepl("^#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$", x, ignore.case = TRUE)
+}
+
 #' Check if an argument is a email address string
 #'
 #' @param x (`any`)\cr
@@ -21,6 +99,27 @@ is_email <- function(x) {
 #' @export
 is_uuid <- function(x) {
   regex <- "^[0-9a-f]{8}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{12}$" # nolint
+  is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
+}
+
+#' Check if an argument is a MIME type string
+#'
+#' Validates the `type/subtype` format where the top-level type must be one of the IANA-registered
+#' types: `application`, `audio`, `font`, `image`, `message`, `model`, `multipart`, `text`, or
+#' `video`.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid MIME type string, `FALSE` otherwise.
+#' @references
+#' <https://www.iana.org/assignments/media-types/media-types.xhtml>
+#' @examples
+#' is_mime("application/json")
+#' is_mime("text/plain")
+#' @export
+is_mime <- function(x) {
+  types <- "application|audio|font|image|message|model|multipart|text|video"
+  regex <- paste0("^(", types, ")/[a-zA-Z0-9][a-zA-Z0-9!#$&\\-^_.+]*$")
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 

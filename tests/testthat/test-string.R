@@ -1,3 +1,58 @@
+test_that("is_iso_date works", {
+  expect_true(is_iso_date("2024-01-15"))
+  expect_true(is_iso_date("2024-02-29")) # leap year
+  expect_true(is_iso_date("2000-02-29")) # divisible by 400
+  expect_true(is_iso_date("0001-01-01"))
+
+  expect_false(is_iso_date("2024-02-30")) # feb too many days
+  expect_false(is_iso_date("2023-02-29")) # not a leap year
+  expect_false(is_iso_date("1900-02-29")) # divisible by 100 but not 400
+  expect_false(is_iso_date("2024-13-01")) # invalid month
+  expect_false(is_iso_date("2024-00-01")) # month zero
+  expect_false(is_iso_date("2024-01-00")) # day zero
+  expect_false(is_iso_date("2024-1-15")) # unpadded month
+  expect_false(is_iso_date("24-01-15")) # short year
+  expect_false(is_iso_date("2024/01/15")) # wrong separator
+  expect_false(is_iso_date(1L))
+})
+
+test_that("is_iso_datetime works", {
+  expect_true(is_iso_datetime("2024-01-15T12:00:00Z"))
+  expect_true(is_iso_datetime("2024-01-15T00:00:00Z"))
+  expect_true(is_iso_datetime("2024-01-15T23:59:59Z"))
+  expect_true(is_iso_datetime("2024-01-15T12:00:00.123Z"))
+  expect_true(is_iso_datetime("2024-01-15T12:00:00.123456Z"))
+  expect_true(is_iso_datetime("2024-01-15T12:00:00")) # local time
+  expect_true(is_iso_datetime("2024-01-15T12:00:00+05:30")) # offset
+  expect_true(is_iso_datetime("2024-01-15T12:00:00-08:00"))
+  expect_true(is_iso_datetime("2024-01-15T12:00:00.123+05:30"))
+
+  expect_false(is_iso_datetime("2024-01-15T24:00:00Z")) # hour 24
+  expect_false(is_iso_datetime("2024-01-15T12:60:00Z")) # minute 60
+  expect_false(is_iso_datetime("2024-01-15T12:00:60Z")) # second 60
+  expect_false(is_iso_datetime("2024-02-30T12:00:00Z")) # invalid date
+  expect_false(is_iso_datetime("2024-01-15 12:00:00Z")) # space instead of T
+  expect_false(is_iso_datetime("2024-01-15T12:00:00+5:30")) # unpadded offset hour
+  expect_false(is_iso_datetime("2024-01-15T12:00:00+05")) # missing offset minutes
+  expect_false(is_iso_datetime(1L))
+})
+
+test_that("is_color_hex works", {
+  expect_true(is_color_hex("#fff"))
+  expect_true(is_color_hex("#FFF"))
+  expect_true(is_color_hex("#fffa"))
+  expect_true(is_color_hex("#FF5733"))
+  expect_true(is_color_hex("#ff5733aa"))
+  expect_true(is_color_hex("#000000"))
+
+  expect_false(is_color_hex("FF5733")) # missing #
+  expect_false(is_color_hex("#ff")) # too short
+  expect_false(is_color_hex("#fffff")) # 5 chars
+  expect_false(is_color_hex("#fffffff")) # 7 chars
+  expect_false(is_color_hex("#gggggg")) # invalid hex
+  expect_false(is_color_hex(1L))
+})
+
 test_that("is_email works", {
   expect_true(is_email("user.name+tag@example.com"))
   expect_true(is_email("USER_123@sub.domain.co"))
@@ -10,6 +65,24 @@ test_that("is_email works", {
   expect_false(is_email("user@com")) # no dot in domain
   expect_false(is_email("user@domain..com")) # consecutive dots in domain
   expect_false(is_email("user@domain.c")) # TLD too short
+})
+
+test_that("is_mime works", {
+  expect_true(is_mime("application/json"))
+  expect_true(is_mime("text/plain"))
+  expect_true(is_mime("image/png"))
+  expect_true(is_mime("application/vnd.api+json"))
+  expect_true(is_mime("audio/mpeg"))
+  expect_true(is_mime("multipart/form-data"))
+  expect_true(is_mime("font/woff2"))
+  expect_true(is_mime("model/gltf+json"))
+
+  expect_false(is_mime("text")) # missing subtype
+  expect_false(is_mime("text/")) # empty subtype
+  expect_false(is_mime("foo/plain")) # invalid top-level type
+  expect_false(is_mime("text/plain; charset=utf-8")) # parameters not allowed
+  expect_true(is_mime("TEXT/plain")) # case-insensitive per RFC 2045
+  expect_false(is_mime(1L))
 })
 
 test_that("is_uuid works", {
