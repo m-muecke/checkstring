@@ -187,6 +187,70 @@ is_ipv4 <- function(x) {
   is_string(x) && grepl(regex, x, perl = TRUE)
 }
 
+#' Check if an argument is an IPv6 address string
+#'
+#' Validates full, compressed (`::`) and IPv4-embedded (`::ffff:192.168.1.1`) forms.
+#' Zone IDs (e.g. `%eth0`) are not supported.
+#'
+#' @param x (`any`)\cr
+#'   Object to check.
+#' @return `TRUE` if `x` is a valid IPv6 address string, `FALSE` otherwise.
+#' @examples
+#' is_ipv6("2001:0db8:85a3:0000:0000:8a2e:0370:7334")
+#' is_ipv6("::1")
+#' @export
+is_ipv6 <- function(x) {
+  if (!is_string(x) || !nzchar(x)) {
+    return(FALSE)
+  }
+  if (grepl("[^0-9a-f:.]", x, ignore.case = TRUE)) {
+    return(FALSE)
+  }
+  # at most one "::"; reject ":::" or longer colon runs
+  if (grepl(":::", x, fixed = TRUE) || length(gregexpr("::", x, fixed = TRUE)[[1L]]) > 1L) {
+    return(FALSE)
+  }
+  has_compressed <- grepl("::", x, fixed = TRUE)
+  # reject lone leading/trailing single colons (not part of "::")
+  if (!has_compressed && (startsWith(x, ":") || endsWith(x, ":"))) {
+    return(FALSE)
+  }
+  # split off optional embedded IPv4 tail (e.g. "::ffff:192.168.1.1")
+  target_groups <- 8L
+  if (grepl("\\.", x)) {
+    m <- regmatches(x, regexpr("[^:]+$", x))
+    if (!is_ipv4(m)) {
+      return(FALSE)
+    }
+    x <- substr(x, 1L, nchar(x) - nchar(m))
+    target_groups <- 6L
+    # x now ends in ":"; trim it unless that would destroy a "::"
+    if (!endsWith(x, "::")) {
+      x <- substr(x, 1L, nchar(x) - 1L)
+    }
+  }
+  hextet <- "^[0-9a-f]{1,4}$"
+  if (!has_compressed) {
+    groups <- strsplit(x, ":", fixed = TRUE)[[1L]]
+    length(groups) == target_groups && all(grepl(hextet, groups, ignore.case = TRUE))
+  } else {
+    parts <- strsplit(x, "::", fixed = TRUE)[[1L]]
+    left <- if (length(parts) >= 1L && nzchar(parts[1L])) {
+      strsplit(parts[1L], ":", fixed = TRUE)[[1L]]
+    } else {
+      character()
+    }
+    right <- if (length(parts) == 2L && nzchar(parts[2L])) {
+      strsplit(parts[2L], ":", fixed = TRUE)[[1L]]
+    } else {
+      character()
+    }
+    length(left) + length(right) < target_groups &&
+      all(grepl(hextet, left, ignore.case = TRUE)) &&
+      all(grepl(hextet, right, ignore.case = TRUE))
+  }
+}
+
 #' Check if an argument is a hexadecimal string
 #'
 #' @param x (`any`)\cr
