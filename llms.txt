@@ -14,12 +14,14 @@ You can install the released version of **checkstring** from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 install.packages("checkstring")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("m-muecke/checkstring")
 ```
@@ -27,6 +29,7 @@ pak::pak("m-muecke/checkstring")
 ## Usage
 
 ``` r
+
 library(checkstring)
 
 is_email("user@example.com")
