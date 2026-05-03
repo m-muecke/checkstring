@@ -12,16 +12,16 @@ is_doi(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid DOI string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid DOI string, \`FALSE\` otherwise.
 
 ## References
 
-<https://www.doi.org/the-identifier/what-is-a-doi/>
+\<https://www.doi.org/the-identifier/what-is-a-doi/\>
 
 ## Examples
 

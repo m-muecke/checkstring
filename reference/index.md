@@ -24,6 +24,8 @@
   : Check if an argument is a hostname string
 - [`is_ipv4()`](https://m-muecke.github.io/checkstring/reference/is_ipv4.md)
   : Check if an argument is an IPv4 address string
+- [`is_ipv6()`](https://m-muecke.github.io/checkstring/reference/is_ipv6.md)
+  : Check if an argument is an IPv6 address string
 - [`is_mac()`](https://m-muecke.github.io/checkstring/reference/is_mac.md)
   : Check if an argument is a MAC address string
 - [`is_md5()`](https://m-muecke.github.io/checkstring/reference/is_md5.md)

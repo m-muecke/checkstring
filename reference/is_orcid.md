@@ -13,16 +13,16 @@ is_orcid(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid ORCID string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid ORCID string, \`FALSE\` otherwise.
 
 ## References
 
-<https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier>
+\<https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier\>
 
 ## Examples
 

@@ -12,16 +12,16 @@ is_cusip(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid CUSIP string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid CUSIP string, \`FALSE\` otherwise.
 
 ## References
 
-<https://en.wikipedia.org/wiki/CUSIP>
+\<https://en.wikipedia.org/wiki/CUSIP\>
 
 ## Examples
 

@@ -12,12 +12,12 @@ assert_empty_dots(...)
 
 - ...:
 
-  (`any`)  
+  (\`any\`)  
   Ellipsis arguments to check.
 
 ## Value
 
-`NULL` invisibly if empty, otherwise throws an error.
+\`NULL\` invisibly if empty, otherwise throws an error.
 
 ## Examples
 

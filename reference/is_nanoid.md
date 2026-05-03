@@ -12,12 +12,12 @@ is_nanoid(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid Nano ID string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid Nano ID string, \`FALSE\` otherwise.
 
 ## Examples
 

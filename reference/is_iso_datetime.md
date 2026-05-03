@@ -1,8 +1,8 @@
 # Check if an argument is an ISO 8601 datetime string
 
-Validates the `YYYY-MM-DDTHH:MM:SS[.sss]` format with calendar
+Validates the \`YYYY-MM-DDTHH:MM:SS\[.sss\]\` format with calendar
 correctness, including leap year handling. The timezone designator is
-optional and can be `Z` or an offset like `+05:30`.
+optional and can be \`Z\` or an offset like \`+05:30\`.
 
 ## Usage
 
@@ -14,16 +14,17 @@ is_iso_datetime(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid ISO 8601 datetime string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid ISO 8601 datetime string, \`FALSE\`
+otherwise.
 
 ## References
 
-<https://en.wikipedia.org/wiki/ISO_8601>
+\<https://en.wikipedia.org/wiki/ISO_8601\>
 
 ## Examples
 

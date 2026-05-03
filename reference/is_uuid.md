@@ -12,12 +12,12 @@ is_uuid(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid UUID string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid UUID string, \`FALSE\` otherwise.
 
 ## Examples
 

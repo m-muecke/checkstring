@@ -5,6 +5,10 @@
 - [`is_color_hex()`](https://m-muecke.github.io/checkstring/reference/is_color_hex.md)
   validates CSS hex color strings (`#RGB`, `#RGBA`, `#RRGGBB`,
   `#RRGGBBAA`).
+- [`is_ipv6()`](https://m-muecke.github.io/checkstring/reference/is_ipv6.md)
+  validates IPv6 address strings, including compressed (`::`) and
+  IPv4-embedded forms
+  ([\#18](https://github.com/m-muecke/checkstring/issues/18)).
 - [`is_iso_date()`](https://m-muecke.github.io/checkstring/reference/is_iso_date.md)
   and
   [`is_iso_datetime()`](https://m-muecke.github.io/checkstring/reference/is_iso_datetime.md)

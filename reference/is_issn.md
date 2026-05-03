@@ -12,16 +12,16 @@ is_issn(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid ISSN string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid ISSN string, \`FALSE\` otherwise.
 
 ## References
 
-<https://www.loc.gov/issn/check.html>
+\<https://www.loc.gov/issn/check.html\>
 
 ## Examples
 

@@ -12,12 +12,12 @@ is_md5(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid MD5 hash string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid MD5 hash string, \`FALSE\` otherwise.
 
 ## Examples
 

@@ -12,16 +12,16 @@ is_hostname(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid hostname string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid hostname string, \`FALSE\` otherwise.
 
 ## References
 
-<https://en.wikipedia.org/wiki/Hostname>
+\<https://en.wikipedia.org/wiki/Hostname\>
 
 ## Examples
 

@@ -13,17 +13,17 @@ is_lei(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid LEI string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid LEI string, \`FALSE\` otherwise.
 
 ## References
 
-<https://en.wikipedia.org/wiki/Legal_Entity_Identifier>
-<https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml>
+\<https://en.wikipedia.org/wiki/Legal_Entity_Identifier\>
+\<https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml\>
 
 ## Examples
 

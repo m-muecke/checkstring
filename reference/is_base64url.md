@@ -12,12 +12,12 @@ is_base64url(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid base64url string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid base64url string, \`FALSE\` otherwise.
 
 ## Examples
 

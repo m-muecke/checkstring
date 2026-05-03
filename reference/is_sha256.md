@@ -12,12 +12,12 @@ is_sha256(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid SHA-256 hash string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid SHA-256 hash string, \`FALSE\` otherwise.
 
 ## Examples
 

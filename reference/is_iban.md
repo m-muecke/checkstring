@@ -13,16 +13,16 @@ is_iban(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid IBAN string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid IBAN string, \`FALSE\` otherwise.
 
 ## References
 
-<https://en.wikipedia.org/wiki/International_Bank_Account_Number>
+\<https://en.wikipedia.org/wiki/International_Bank_Account_Number\>
 
 ## Examples
 

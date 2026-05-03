@@ -12,16 +12,16 @@ is_sedol(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid SEDOL string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid SEDOL string, \`FALSE\` otherwise.
 
 ## References
 
-<https://en.wikipedia.org/wiki/SEDOL>
+\<https://en.wikipedia.org/wiki/SEDOL\>
 
 ## Examples
 

@@ -12,12 +12,12 @@ is_mac(x)
 
 - x:
 
-  (`any`)  
+  (\`any\`)  
   Object to check.
 
 ## Value
 
-`TRUE` if `x` is a valid MAC address string, `FALSE` otherwise.
+\`TRUE\` if \`x\` is a valid MAC address string, \`FALSE\` otherwise.
 
 ## Examples
 
