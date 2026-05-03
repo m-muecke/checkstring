@@ -7,11 +7,11 @@
 is_isbn(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid ISBN string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid ISBN string, `FALSE` otherwise.
 }
 \description{
 Validates ISBN-10 and ISBN-13 formats, including check digit verification.
@@ -21,5 +21,5 @@ Hyphens and spaces are allowed as separators.
 is_isbn("978-0-306-40615-7")
 }
 \references{
-\url{https://en.wikipedia.org/wiki/International_Standard_Book_Number}
+<https://en.wikipedia.org/wiki/International_Standard_Book_Number>
 }

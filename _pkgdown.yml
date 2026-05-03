@@ -18,6 +18,7 @@ reference:
       - is_hex
       - is_hostname
       - is_ipv4
+      - is_ipv6
       - is_mac
       - is_md5
       - is_nanoid

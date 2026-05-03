@@ -7,11 +7,11 @@
 assert_empty_dots(...)
 }
 \arguments{
-\item{...}{(\code{any})\cr
+\item{...}{(`any`)\cr
 Ellipsis arguments to check.}
 }
 \value{
-\code{NULL} invisibly if empty, otherwise throws an error.
+`NULL` invisibly if empty, otherwise throws an error.
 }
 \description{
 Assert that dots are empty

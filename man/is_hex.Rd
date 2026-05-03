@@ -7,12 +7,12 @@
 is_hex(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid non-empty hexadecimal string, \code{FALSE}
-otherwise.
+`TRUE` if `x` is a valid non-empty hexadecimal string, `FALSE`
+  otherwise.
 }
 \description{
 Check if an argument is a hexadecimal string
