@@ -7,11 +7,11 @@
 is_bic(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid BIC/SWIFT code string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid BIC/SWIFT code string, `FALSE` otherwise.
 }
 \description{
 Check if an argument is a BIC/SWIFT code string
@@ -20,6 +20,6 @@ Check if an argument is a BIC/SWIFT code string
 is_bic("DEUTDEFF")
 }
 \references{
-\url{https://en.wikipedia.org/wiki/ISO_9362}
-\url{https://knowledge.xmldation.com/support/iso20022/general_rules/bic}
+<https://en.wikipedia.org/wiki/ISO_9362>
+<https://knowledge.xmldation.com/support/iso20022/general_rules/bic>
 }

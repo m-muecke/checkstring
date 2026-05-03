@@ -7,11 +7,11 @@
 is_iban(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid IBAN string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid IBAN string, `FALSE` otherwise.
 }
 \description{
 Validates IBAN format including MOD-97-10 check digit verification (ISO/IEC 7064).
@@ -20,5 +20,5 @@ Validates IBAN format including MOD-97-10 check digit verification (ISO/IEC 7064
 is_iban("GB29NWBK60161331926819")
 }
 \references{
-\url{https://en.wikipedia.org/wiki/International_Bank_Account_Number}
+<https://en.wikipedia.org/wiki/International_Bank_Account_Number>
 }

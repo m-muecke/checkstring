@@ -7,19 +7,19 @@
 is_iso_date(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid ISO 8601 date string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid ISO 8601 date string, `FALSE` otherwise.
 }
 \description{
-Validates the \code{YYYY-MM-DD} format with calendar correctness, including leap year handling.
+Validates the `YYYY-MM-DD` format with calendar correctness, including leap year handling.
 }
 \examples{
 is_iso_date("2024-01-15")
 is_iso_date("2024-02-30")
 }
 \references{
-\url{https://en.wikipedia.org/wiki/ISO_8601}
+<https://en.wikipedia.org/wiki/ISO_8601>
 }

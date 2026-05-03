@@ -7,11 +7,11 @@
 is_hostname(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid hostname string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid hostname string, `FALSE` otherwise.
 }
 \description{
 Check if an argument is a hostname string
@@ -20,5 +20,5 @@ Check if an argument is a hostname string
 is_hostname("example.com")
 }
 \references{
-\url{https://en.wikipedia.org/wiki/Hostname}
+<https://en.wikipedia.org/wiki/Hostname>
 }

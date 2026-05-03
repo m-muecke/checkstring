@@ -7,19 +7,19 @@
 is_color_hex(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid hex color string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid hex color string, `FALSE` otherwise.
 }
 \description{
-Validates hex color codes in \verb{#RGB}, \verb{#RGBA}, \verb{#RRGGBB}, or \verb{#RRGGBBAA} format.
+Validates hex color codes in `#RGB`, `#RGBA`, `#RRGGBB`, or `#RRGGBBAA` format.
 }
 \examples{
 is_color_hex("#FF5733")
 is_color_hex("#fff")
 }
 \references{
-\url{https://www.w3.org/TR/css-color-4/#hex-notation}
+<https://www.w3.org/TR/css-color-4/#hex-notation>
 }

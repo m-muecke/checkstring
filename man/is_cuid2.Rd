@@ -7,11 +7,11 @@
 is_cuid2(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid CUID2 string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid CUID2 string, `FALSE` otherwise.
 }
 \description{
 Check if an argument is a CUID2 string

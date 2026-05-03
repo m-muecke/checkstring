@@ -7,11 +7,11 @@
 is_sedol(x)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(`any`)\cr
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid SEDOL string, \code{FALSE} otherwise.
+`TRUE` if `x` is a valid SEDOL string, `FALSE` otherwise.
 }
 \description{
 Validates SEDOL format including weighted check digit verification.
@@ -20,5 +20,5 @@ Validates SEDOL format including weighted check digit verification.
 is_sedol("0263494")
 }
 \references{
-\url{https://en.wikipedia.org/wiki/SEDOL}
+<https://en.wikipedia.org/wiki/SEDOL>
 }
