@@ -12,16 +12,16 @@ is_ulid(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid ULID string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid ULID string, `FALSE` otherwise.
 
 ## References
 
-\<https://github.com/ulid/spec\>
+<https://github.com/ulid/spec>
 
 ## Examples
 

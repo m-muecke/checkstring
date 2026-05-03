@@ -12,12 +12,12 @@ is_cuid2(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid CUID2 string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid CUID2 string, `FALSE` otherwise.
 
 ## Examples
 

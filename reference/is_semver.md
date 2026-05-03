@@ -2,7 +2,7 @@
 
 Validates semantic versioning 2.0.0 format, including optional
 pre-release and build metadata. Uses the official recommended regex from
-\<https://semver.org/\>.
+<https://semver.org/>.
 
 ## Usage
 
@@ -14,16 +14,16 @@ is_semver(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid semver string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid semver string, `FALSE` otherwise.
 
 ## References
 
-\<https://semver.org/\>
+<https://semver.org/>
 
 ## Examples
 

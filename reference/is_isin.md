@@ -13,16 +13,16 @@ is_isin(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid ISIN string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid ISIN string, `FALSE` otherwise.
 
 ## References
 
-\<https://en.wikipedia.org/wiki/International_Securities_Identification_Number\>
+<https://en.wikipedia.org/wiki/International_Securities_Identification_Number>
 
 ## Examples
 

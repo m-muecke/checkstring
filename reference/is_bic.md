@@ -12,17 +12,17 @@ is_bic(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid BIC/SWIFT code string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid BIC/SWIFT code string, `FALSE` otherwise.
 
 ## References
 
-\<https://en.wikipedia.org/wiki/ISO_9362\>
-\<https://knowledge.xmldation.com/support/iso20022/general_rules/bic\>
+<https://en.wikipedia.org/wiki/ISO_9362>
+<https://knowledge.xmldation.com/support/iso20022/general_rules/bic>
 
 ## Examples
 

@@ -1,7 +1,7 @@
 # Check if an argument is a hex color string
 
-Validates hex color codes in \`#RGB\`, \`#RGBA\`, \`#RRGGBB\`, or
-\`#RRGGBBAA\` format.
+Validates hex color codes in `#RGB`, `#RGBA`, `#RRGGBB`, or `#RRGGBBAA`
+format.
 
 ## Usage
 
@@ -13,16 +13,16 @@ is_color_hex(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid hex color string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid hex color string, `FALSE` otherwise.
 
 ## References
 
-\<https://www.w3.org/TR/css-color-4/#hex-notation\>
+<https://www.w3.org/TR/css-color-4/#hex-notation>
 
 ## Examples
 

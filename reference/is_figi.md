@@ -13,17 +13,17 @@ is_figi(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid FIGI string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid FIGI string, `FALSE` otherwise.
 
 ## References
 
-\<https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier\>
-\<https://www.openfigi.com/about/overview\>
+<https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier>
+<https://www.openfigi.com/about/overview>
 
 ## Examples
 

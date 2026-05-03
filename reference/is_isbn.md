@@ -13,16 +13,16 @@ is_isbn(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid ISBN string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid ISBN string, `FALSE` otherwise.
 
 ## References
 
-\<https://en.wikipedia.org/wiki/International_Standard_Book_Number\>
+<https://en.wikipedia.org/wiki/International_Standard_Book_Number>
 
 ## Examples
 

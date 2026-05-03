@@ -12,12 +12,12 @@ is_email(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid email address string, \`FALSE\` otherwise.
+`TRUE` if `x` is a valid email address string, `FALSE` otherwise.
 
 ## Examples
 

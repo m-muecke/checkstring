@@ -12,12 +12,12 @@ is_hex(x)
 
 - x:
 
-  (\`any\`)  
+  (`any`)  
   Object to check.
 
 ## Value
 
-\`TRUE\` if \`x\` is a valid non-empty hexadecimal string, \`FALSE\`
+`TRUE` if `x` is a valid non-empty hexadecimal string, `FALSE`
 otherwise.
 
 ## Examples
