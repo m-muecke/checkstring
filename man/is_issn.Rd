@@ -7,11 +7,11 @@
 is_issn(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid ISSN string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid ISSN string, \code{FALSE} otherwise.
 }
 \description{
 Validates ISSN format including check digit verification.
@@ -20,5 +20,5 @@ Validates ISSN format including check digit verification.
 is_issn("0378-5955")
 }
 \references{
-<https://www.loc.gov/issn/check.html>
+\url{https://www.loc.gov/issn/check.html}
 }

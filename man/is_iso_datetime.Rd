@@ -7,15 +7,15 @@
 is_iso_datetime(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid ISO 8601 datetime string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid ISO 8601 datetime string, \code{FALSE} otherwise.
 }
 \description{
-Validates the `YYYY-MM-DDTHH:MM:SS[.sss]` format with calendar correctness, including leap year
-handling. The timezone designator is optional and can be `Z` or an offset like `+05:30`.
+Validates the \code{YYYY-MM-DDTHH:MM:SS[.sss]} format with calendar correctness, including leap year
+handling. The timezone designator is optional and can be \code{Z} or an offset like \code{+05:30}.
 }
 \examples{
 is_iso_datetime("2024-01-15T12:00:00Z")
@@ -23,5 +23,5 @@ is_iso_datetime("2024-01-15T12:00:00+05:30")
 is_iso_datetime("2024-01-15T12:00:00")
 }
 \references{
-<https://en.wikipedia.org/wiki/ISO_8601>
+\url{https://en.wikipedia.org/wiki/ISO_8601}
 }

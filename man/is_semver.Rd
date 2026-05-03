@@ -7,19 +7,19 @@
 is_semver(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid semver string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid semver string, \code{FALSE} otherwise.
 }
 \description{
 Validates semantic versioning 2.0.0 format, including optional pre-release and build metadata.
-Uses the official recommended regex from <https://semver.org/>.
+Uses the official recommended regex from \url{https://semver.org/}.
 }
 \examples{
 is_semver("1.0.0")
 }
 \references{
-<https://semver.org/>
+\url{https://semver.org/}
 }

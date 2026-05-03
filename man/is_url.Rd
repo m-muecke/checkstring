@@ -7,11 +7,11 @@
 is_url(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid URL string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid URL string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is url string

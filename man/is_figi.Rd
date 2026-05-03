@@ -7,11 +7,11 @@
 is_figi(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid FIGI string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid FIGI string, \code{FALSE} otherwise.
 }
 \description{
 Validates FIGI (Financial Instrument Global Identifier) format including Luhn check digit
@@ -21,6 +21,6 @@ verification.
 is_figi("BBG000BLNNH6")
 }
 \references{
-<https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier>
-<https://www.openfigi.com/about/overview>
+\url{https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier}
+\url{https://www.openfigi.com/about/overview}
 }

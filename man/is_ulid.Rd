@@ -7,11 +7,11 @@
 is_ulid(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid ULID string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid ULID string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is a ULID string
@@ -20,5 +20,5 @@ Check if an argument is a ULID string
 is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAV")
 }
 \references{
-<https://github.com/ulid/spec>
+\url{https://github.com/ulid/spec}
 }

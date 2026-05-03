@@ -7,11 +7,11 @@
 is_cusip(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid CUSIP string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid CUSIP string, \code{FALSE} otherwise.
 }
 \description{
 Validates CUSIP format including Luhn-variant check digit verification.
@@ -20,5 +20,5 @@ Validates CUSIP format including Luhn-variant check digit verification.
 is_cusip("037833100")
 }
 \references{
-<https://en.wikipedia.org/wiki/CUSIP>
+\url{https://en.wikipedia.org/wiki/CUSIP}
 }

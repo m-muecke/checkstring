@@ -7,21 +7,21 @@
 is_mime(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid MIME type string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid MIME type string, \code{FALSE} otherwise.
 }
 \description{
-Validates the `type/subtype` format where the top-level type must be one of the IANA-registered
-types: `application`, `audio`, `font`, `image`, `message`, `model`, `multipart`, `text`, or
-`video`.
+Validates the \code{type/subtype} format where the top-level type must be one of the IANA-registered
+types: \code{application}, \code{audio}, \code{font}, \code{image}, \code{message}, \code{model}, \code{multipart}, \code{text}, or
+\code{video}.
 }
 \examples{
 is_mime("application/json")
 is_mime("text/plain")
 }
 \references{
-<https://www.iana.org/assignments/media-types/media-types.xhtml>
+\url{https://www.iana.org/assignments/media-types/media-types.xhtml}
 }

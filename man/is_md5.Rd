@@ -7,11 +7,11 @@
 is_md5(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid MD5 hash string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid MD5 hash string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is an MD5 hash string

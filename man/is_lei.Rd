@@ -7,11 +7,11 @@
 is_lei(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid LEI string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid LEI string, \code{FALSE} otherwise.
 }
 \description{
 Validates LEI (Legal Entity Identifier) format including MOD-97-10 check digit verification
@@ -21,6 +21,6 @@ Validates LEI (Legal Entity Identifier) format including MOD-97-10 check digit v
 is_lei("7H6GLXDRUGQFU57RNE97")
 }
 \references{
-<https://en.wikipedia.org/wiki/Legal_Entity_Identifier>
-<https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml>
+\url{https://en.wikipedia.org/wiki/Legal_Entity_Identifier}
+\url{https://www.govinfo.gov/content/pkg/CFR-2016-title12-vol8/xml/CFR-2016-title12-vol8-part1003-appC.xml}
 }

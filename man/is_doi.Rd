@@ -7,11 +7,11 @@
 is_doi(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid DOI string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid DOI string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is a DOI string
@@ -20,5 +20,5 @@ Check if an argument is a DOI string
 is_doi("10.1038/nphys1170")
 }
 \references{
-<https://www.doi.org/the-identifier/what-is-a-doi/>
+\url{https://www.doi.org/the-identifier/what-is-a-doi/}
 }

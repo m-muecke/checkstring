@@ -7,11 +7,11 @@
 is_sha256(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid SHA-256 hash string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid SHA-256 hash string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is a SHA-256 hash string

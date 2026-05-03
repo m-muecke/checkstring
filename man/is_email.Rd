@@ -7,11 +7,11 @@
 is_email(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid email address string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid email address string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is a email address string

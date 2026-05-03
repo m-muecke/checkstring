@@ -7,15 +7,15 @@
 is_ipv6(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid IPv6 address string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid IPv6 address string, \code{FALSE} otherwise.
 }
 \description{
-Validates full, compressed (`::`) and IPv4-embedded (`::ffff:192.168.1.1`) forms.
-Zone IDs (e.g. `%eth0`) are not supported.
+Validates full, compressed (\code{::}) and IPv4-embedded (\verb{::ffff:192.168.1.1}) forms.
+Zone IDs (e.g. \verb{\%eth0}) are not supported.
 }
 \examples{
 is_ipv6("2001:0db8:85a3:0000:0000:8a2e:0370:7334")

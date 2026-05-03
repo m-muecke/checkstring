@@ -7,11 +7,11 @@
 is_orcid(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid ORCID string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid ORCID string, \code{FALSE} otherwise.
 }
 \description{
 Validates ORCID format including ISO/IEC 7064:2003, MOD 11-2 check digit
@@ -21,5 +21,5 @@ verification.
 is_orcid("0000-0002-1825-0097")
 }
 \references{
-<https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier>
+\url{https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier}
 }

@@ -7,11 +7,11 @@
 is_base64(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid base64 string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid base64 string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is a base64 string

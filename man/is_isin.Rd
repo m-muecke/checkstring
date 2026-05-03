@@ -7,11 +7,11 @@
 is_isin(x)
 }
 \arguments{
-\item{x}{(`any`)\cr
+\item{x}{(\code{any})\cr
 Object to check.}
 }
 \value{
-`TRUE` if `x` is a valid ISIN string, `FALSE` otherwise.
+\code{TRUE} if \code{x} is a valid ISIN string, \code{FALSE} otherwise.
 }
 \description{
 Validates ISIN (International Securities Identification Number) format including Luhn check
@@ -21,5 +21,5 @@ digit verification.
 is_isin("US0378331005")
 }
 \references{
-<https://en.wikipedia.org/wiki/International_Securities_Identification_Number>
+\url{https://en.wikipedia.org/wiki/International_Securities_Identification_Number}
 }
