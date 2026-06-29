@@ -1,3 +1,5 @@
+# checkstring (development version)
+
 # checkstring 0.2.0
 
 - `is_color_hex()` validates hex color strings (`#RGB`, `#RGBA`, `#RRGGBB`, `#RRGGBBAA`).
