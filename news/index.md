@@ -1,5 +1,7 @@
 # Changelog
 
+## checkstring (development version)
+
 ## checkstring 0.2.0
 
 CRAN release: 2026-06-29
