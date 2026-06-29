@@ -1,4 +1,4 @@
-# checkstring (development version)
+# checkstring 0.2.0
 
 - `is_color_hex()` validates hex color strings (`#RGB`, `#RGBA`, `#RRGGBB`, `#RRGGBBAA`).
 - `is_ipv6()` validates IPv6 address strings, including compressed (`::`) and IPv4-embedded forms (#18).
