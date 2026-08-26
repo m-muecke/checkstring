@@ -15,7 +15,7 @@ BugReports: https://github.com/m-muecke/checkstring/issues
 Depends:
     R (>= 4.1.0)
 Suggests:
-    curl,
+    curl (>= 6.0.0),
     testthat (>= 3.3.0)
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/version: 8.1.0
