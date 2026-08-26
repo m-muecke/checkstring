@@ -169,7 +169,7 @@ is_url <- function(x) {
       curl::curl_parse_url(x, decode = FALSE)
       TRUE
     },
-    error = function(e) FALSE
+    error = \(e) FALSE
   )
 }
 
