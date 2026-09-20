@@ -2,7 +2,7 @@ pandoc: 3.8.3
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2026-09-12T09:02Z
+last_built: 2026-09-20T14:45Z
 urls:
   reference: https://m-muecke.github.io/checkstring/reference
   article: https://m-muecke.github.io/checkstring/articles
