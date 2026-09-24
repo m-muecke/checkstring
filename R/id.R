@@ -124,25 +124,11 @@ is_isin <- function(x) {
   if (!is_string(x) || !grepl("^[A-Z]{2}[A-Z0-9]{9}[0-9]$", x)) {
     return(FALSE)
   }
-  codes <- utf8ToInt(x)
-  vals <- char_to_val(codes)
-  digits <- integer(24L)
-  k <- 0L
-  for (v in vals) {
-    if (v >= 10L) {
-      k <- k + 1L
-      digits[k] <- v %/% 10L
-      k <- k + 1L
-      digits[k] <- v %% 10L
-    } else {
-      k <- k + 1L
-      digits[k] <- v
-    }
-  }
-  digits <- digits[seq_len(k)]
-  pos <- seq.int(k - 1L, 1L, by = -2L)
+  vals <- char_to_val(utf8ToInt(x))
+  digits <- utf8ToInt(paste(vals, collapse = "")) - 48L
+  pos <- seq.int(length(digits) - 1L, 1L, by = -2L)
   digits[pos] <- digits[pos] * 2L
-  digits[pos] <- ifelse(digits[pos] > 9L, digits[pos] - 9L, digits[pos])
+  digits[pos] <- digits[pos] - 9L * (digits[pos] > 9L)
   sum(digits) %% 10L == 0L
 }
 
