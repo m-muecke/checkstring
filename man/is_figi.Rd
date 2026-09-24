@@ -15,7 +15,8 @@ Object to check.}
 }
 \description{
 Validates FIGI (Financial Instrument Global Identifier) format including Luhn check digit
-verification.
+verification. The prefixes \code{BS}, \code{BM}, \code{GG}, \code{GB}, \code{GH}, \code{KY}, and \code{VG} are reserved to avoid
+collisions with ISINs and are rejected.
 }
 \examples{
 is_figi("BBG000BLNNH6")
@@ -23,4 +24,5 @@ is_figi("BBG000BLNNH6")
 \references{
 \url{https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier}
 \url{https://www.openfigi.com/about/overview}
+\url{https://www.omg.org/spec/FIGI/}
 }

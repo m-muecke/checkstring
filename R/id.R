@@ -63,7 +63,8 @@ is_cusip <- function(x) {
 #' Check if an argument is a valid FIGI string
 #'
 #' Validates FIGI (Financial Instrument Global Identifier) format including Luhn check digit
-#' verification.
+#' verification. The prefixes `BS`, `BM`, `GG`, `GB`, `GH`, `KY`, and `VG` are reserved to avoid
+#' collisions with ISINs and are rejected.
 #'
 #' @param x (`any`)\cr
 #'   Object to check.
@@ -71,11 +72,15 @@ is_cusip <- function(x) {
 #' @references
 #' <https://en.wikipedia.org/wiki/Financial_Instrument_Global_Identifier>
 #' <https://www.openfigi.com/about/overview>
+#' <https://www.omg.org/spec/FIGI/>
 #' @examples
 #' is_figi("BBG000BLNNH6")
 #' @export
 is_figi <- function(x) {
   if (!is_string(x) || !grepl("^[B-DF-HJ-NP-TV-Z]{2}G[B-DF-HJ-NP-TV-Z0-9]{8}[0-9]$", x)) {
+    return(FALSE)
+  }
+  if (any(startsWith(x, c("BS", "BM", "GG", "GB", "GH", "KY", "VG")))) {
     return(FALSE)
   }
   codes <- utf8ToInt(x)

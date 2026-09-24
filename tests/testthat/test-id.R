@@ -51,6 +51,8 @@ test_that("is_figi works", {
   expect_false(is_figi("ABG000BLNNH6")) # vowel A in prefix
   expect_false(is_figi("BBB000BLNNH6")) # 3rd char must be G
   expect_false(is_figi("BBG000BLANH6")) # vowel A not allowed
+  expect_false(is_figi("BSG000BLNNH9")) # reserved prefix BS
+  expect_false(is_figi("GGG000BLNNH0")) # reserved prefix GG
   expect_false(is_figi(123L))
 })
 

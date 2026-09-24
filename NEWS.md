@@ -1,6 +1,7 @@
 # checkstring (development version)
 
 - `is_base64()` and `is_base64url()` now return `FALSE` for empty strings.
+- `is_figi()` now rejects the reserved prefixes `BS`, `BM`, `GG`, `GB`, `GH`, `KY`, and `VG`.
 - `is_ipv6()` no longer accepts a trailing single colon after a compressed group, such as `"1::2:"`.
 - `is_iso_datetime()` now validates the timezone offset, rejecting out-of-range values such as `"+99:99"`.
 
