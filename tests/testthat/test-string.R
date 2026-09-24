@@ -106,6 +106,7 @@ test_that("is_base64 works", {
   expect_false(is_base64("TWE")) # not padded
   expect_false(is_base64("TWE===")) # overpadded
   expect_false(is_base64("TWE*")) # invalid char
+  expect_false(is_base64(""))
 })
 
 test_that("is_base64url works", {
@@ -116,6 +117,7 @@ test_that("is_base64url works", {
 
   expect_false(is_base64url("TWE===")) # overpadded
   expect_false(is_base64url("TWE*")) # invalid char
+  expect_false(is_base64url(""))
 })
 
 test_that("is_ipv4 works", {

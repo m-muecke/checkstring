@@ -133,26 +133,26 @@ is_mime <- function(x) {
 #'
 #' @param x (`any`)\cr
 #'   Object to check.
-#' @return `TRUE` if `x` is a valid base64 string, `FALSE` otherwise.
+#' @return `TRUE` if `x` is a valid non-empty base64 string, `FALSE` otherwise.
 #' @examples
 #' is_base64("SGVsbG8gV29ybGQ=")
 #' @export
 is_base64 <- function(x) {
   regex <- "^([0-9a-zA-Z+/]{4})*((([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?)$"
-  is_string(x) && grepl(regex, x, perl = TRUE)
+  is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
 #' Check if an argument is base64url string
 #'
 #' @param x (`any`)\cr
 #'   Object to check.
-#' @return `TRUE` if `x` is a valid base64url string, `FALSE` otherwise.
+#' @return `TRUE` if `x` is a valid non-empty base64url string, `FALSE` otherwise.
 #' @examples
 #' is_base64url("SGVsbG8gV29ybGQ")
 #' @export
 is_base64url <- function(x) {
   regex <- "^([0-9a-zA-Z\\-_]{4})*((([0-9a-zA-Z\\-_]{2}(==)?)|([0-9a-zA-Z\\-_]{3}(=)?))?)$" # nolint
-  is_string(x) && grepl(regex, x, perl = TRUE)
+  is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
 #' Check if an argument is url string

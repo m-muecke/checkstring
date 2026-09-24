@@ -11,7 +11,7 @@ is_base64url(x)
 Object to check.}
 }
 \value{
-\code{TRUE} if \code{x} is a valid base64url string, \code{FALSE} otherwise.
+\code{TRUE} if \code{x} is a valid non-empty base64url string, \code{FALSE} otherwise.
 }
 \description{
 Check if an argument is base64url string
