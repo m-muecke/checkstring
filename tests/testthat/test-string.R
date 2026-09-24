@@ -64,6 +64,8 @@ test_that("is_email works", {
   expect_false(is_email("user..name@example.com")) # consecutive dots
   expect_false(is_email("user.@example.com")) # ends local part with dot
   expect_false(is_email("user@.com")) # domain starts with dot
+  expect_false(is_email("user@-domain.com")) # label starts with hyphen
+  expect_false(is_email("user@domain-.com")) # label ends with hyphen
   expect_false(is_email("user@com")) # no dot in domain
   expect_false(is_email("user@domain..com")) # consecutive dots in domain
   expect_false(is_email("user@domain.c")) # TLD too short
