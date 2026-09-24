@@ -46,11 +46,11 @@ is_iso_date <- function(x) {
 #' @export
 is_iso_datetime <- function(x) {
   regex <- "^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})(?:\\.\\d+)?(?:Z|[+-](\\d{2}):(\\d{2}))?$" # nolint
-  if (!is_string(x) || !grepl(regex, x, perl = TRUE)) {
+  if (!is_string(x)) {
     return(FALSE)
   }
   m <- regmatches(x, regexec(regex, x, perl = TRUE))[[1L]]
-  if (!is_iso_date(m[[2L]])) {
+  if (length(m) == 0L || !is_iso_date(m[[2L]])) {
     return(FALSE)
   }
   hour <- as.integer(m[[3L]])
