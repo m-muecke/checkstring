@@ -268,8 +268,10 @@ test_that("is_nanoid works", {
 test_that("is_cuid2 works", {
   expect_true(is_cuid2("ckopqwooh000001la8mbi2im9"))
   expect_true(is_cuid2("abcdefghijklmnopqrstuvwx"))
+  expect_true(is_cuid2(strrep("a", 32L)))
 
   expect_false(is_cuid2("Akopqwooh000001la8mbi2im9")) # starts uppercase
   expect_false(is_cuid2("1kopqwooh000001la8mbi2im9")) # starts with digit
   expect_false(is_cuid2("abc")) # too short
+  expect_false(is_cuid2(strrep("a", 33L))) # too long
 })

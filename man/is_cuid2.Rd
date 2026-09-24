@@ -14,8 +14,11 @@ Object to check.}
 \code{TRUE} if \code{x} is a valid CUID2 string, \code{FALSE} otherwise.
 }
 \description{
-Check if an argument is a CUID2 string
+Validates CUID2 strings of 24 (the default length) to 32 (the maximum length) characters.
 }
 \examples{
 is_cuid2("ckopqwooh000001la8mbi2im9")
+}
+\references{
+\url{https://github.com/paralleldrive/cuid2}
 }

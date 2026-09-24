@@ -368,12 +368,16 @@ is_nanoid <- function(x) {
 
 #' Check if an argument is a CUID2 string
 #'
+#' Validates CUID2 strings of 24 (the default length) to 32 (the maximum length) characters.
+#'
 #' @param x (`any`)\cr
 #'   Object to check.
 #' @return `TRUE` if `x` is a valid CUID2 string, `FALSE` otherwise.
+#' @references
+#' <https://github.com/paralleldrive/cuid2>
 #' @examples
 #' is_cuid2("ckopqwooh000001la8mbi2im9")
 #' @export
 is_cuid2 <- function(x) {
-  is_string(x) && grepl("^[a-z][0-9a-z]{23,}$", x)
+  is_string(x) && grepl("^[a-z][0-9a-z]{23,31}$", x)
 }
