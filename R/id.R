@@ -278,7 +278,7 @@ parse_check_digits <- function(x) {
 }
 
 mod97 <- function(codes) {
-  vals <- ifelse(codes >= 65L, codes - 55L, codes - 48L)
+  vals <- char_to_val(codes)
   rem <- 0L
   for (v in vals) {
     if (v >= 10L) {
