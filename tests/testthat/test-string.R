@@ -34,6 +34,8 @@ test_that("is_iso_datetime works", {
   expect_false(is_iso_datetime("2024-01-15 12:00:00Z")) # space instead of T
   expect_false(is_iso_datetime("2024-01-15T12:00:00+5:30")) # unpadded offset hour
   expect_false(is_iso_datetime("2024-01-15T12:00:00+05")) # missing offset minutes
+  expect_false(is_iso_datetime("2024-01-15T12:00:00+24:00")) # offset hour 24
+  expect_false(is_iso_datetime("2024-01-15T12:00:00-05:60")) # offset minute 60
   expect_false(is_iso_datetime(1L))
 })
 

@@ -45,7 +45,7 @@ is_iso_date <- function(x) {
 #' is_iso_datetime("2024-01-15T12:00:00")
 #' @export
 is_iso_datetime <- function(x) {
-  regex <- "^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})(\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
+  regex <- "^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})(?:\\.\\d+)?(?:Z|[+-](\\d{2}):(\\d{2}))?$" # nolint
   if (!is_string(x) || !grepl(regex, x, perl = TRUE)) {
     return(FALSE)
   }
@@ -56,7 +56,13 @@ is_iso_datetime <- function(x) {
   hour <- as.integer(m[[3L]])
   min <- as.integer(m[[4L]])
   sec <- as.integer(m[[5L]])
-  hour <= 23L && min <= 59L && sec <= 59L
+  if (hour > 23L || min > 59L || sec > 59L) {
+    return(FALSE)
+  }
+  if (!nzchar(m[[6L]])) {
+    return(TRUE)
+  }
+  as.integer(m[[6L]]) <= 23L && as.integer(m[[7L]]) <= 59L
 }
 
 #' Check if an argument is a hex color string
