@@ -2,6 +2,17 @@
 
 ## checkstring (development version)
 
+- [`is_base64()`](https://m-muecke.github.io/checkstring/reference/is_base64.md)
+  and
+  [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md)
+  now return `FALSE` for empty strings.
+- [`is_ipv6()`](https://m-muecke.github.io/checkstring/reference/is_ipv6.md)
+  no longer accepts a trailing single colon after a compressed group,
+  such as `"1::2:"`.
+- [`is_iso_datetime()`](https://m-muecke.github.io/checkstring/reference/is_iso_datetime.md)
+  now validates the timezone offset, rejecting out-of-range values such
+  as `"+99:99"`.
+
 ## checkstring 0.2.0
 
 CRAN release: 2026-06-29

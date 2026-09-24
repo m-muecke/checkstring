@@ -17,7 +17,7 @@ is_base64(x)
 
 ## Value
 
-`TRUE` if `x` is a valid base64 string, `FALSE` otherwise.
+`TRUE` if `x` is a valid non-empty base64 string, `FALSE` otherwise.
 
 ## Examples
 

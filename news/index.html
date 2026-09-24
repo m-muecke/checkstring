@@ -40,7 +40,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="checkstring-development-version">checkstring (development version)<a class="anchor" aria-label="anchor" href="#checkstring-development-version"></a></h2>
-</div>
+<ul><li>
+<code><a href="../reference/is_base64.html">is_base64()</a></code> and <code><a href="../reference/is_base64url.html">is_base64url()</a></code> now return <code>FALSE</code> for empty strings.</li>
+<li>
+<code><a href="../reference/is_ipv6.html">is_ipv6()</a></code> no longer accepts a trailing single colon after a compressed group, such as <code>"1::2:"</code>.</li>
+<li>
+<code><a href="../reference/is_iso_datetime.html">is_iso_datetime()</a></code> now validates the timezone offset, rejecting out-of-range values such as <code>"+99:99"</code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="checkstring-020">checkstring 0.2.0<a class="anchor" aria-label="anchor" href="#checkstring-020"></a></h2><p class="text-muted">CRAN release: 2026-06-29</p>
 <ul><li>
