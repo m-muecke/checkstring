@@ -251,11 +251,13 @@ test_that("is_mac works", {
 test_that("is_ulid works", {
   expect_true(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAV"))
   expect_true(is_ulid("01H5V6E3MXHP0GGQB7K8CPWM1A"))
+  expect_true(is_ulid("7ZZZZZZZZZZZZZZZZZZZZZZZZZ")) # max value
 
   expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FA")) # too short
   expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAVX")) # too long
   expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAi")) # lowercase
   expect_false(is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAO")) # invalid char O
+  expect_false(is_ulid("8ZZZZZZZZZZZZZZZZZZZZZZZZZ")) # timestamp overflow
 })
 
 test_that("is_nanoid works", {

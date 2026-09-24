@@ -351,7 +351,7 @@ is_mac <- function(x) {
 #' is_ulid("01ARZ3NDEKTSV4RRFFQ69G5FAV")
 #' @export
 is_ulid <- function(x) {
-  is_string(x) && grepl("^[0-9A-HJKMNP-TV-Z]{26}$", x)
+  is_string(x) && grepl("^[0-7][0-9A-HJKMNP-TV-Z]{25}$", x)
 }
 
 #' Check if an argument is a Nano ID string
