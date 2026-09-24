@@ -6,12 +6,24 @@
   and
   [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md)
   now return `FALSE` for empty strings.
+- [`is_cuid2()`](https://m-muecke.github.io/checkstring/reference/is_cuid2.md)
+  now rejects strings longer than 32 characters, the maximum CUID2
+  length.
+- [`is_email()`](https://m-muecke.github.io/checkstring/reference/is_email.md)
+  now rejects domain labels that end with a hyphen, such as
+  `"user@domain-.com"`.
+- [`is_figi()`](https://m-muecke.github.io/checkstring/reference/is_figi.md)
+  now rejects the reserved prefixes `BS`, `BM`, `GG`, `GB`, `GH`, `KY`,
+  and `VG`.
 - [`is_ipv6()`](https://m-muecke.github.io/checkstring/reference/is_ipv6.md)
   no longer accepts a trailing single colon after a compressed group,
   such as `"1::2:"`.
 - [`is_iso_datetime()`](https://m-muecke.github.io/checkstring/reference/is_iso_datetime.md)
   now validates the timezone offset, rejecting out-of-range values such
   as `"+99:99"`.
+- [`is_ulid()`](https://m-muecke.github.io/checkstring/reference/is_ulid.md)
+  now rejects ULIDs whose first character is greater than `7`, which
+  would overflow the 48-bit timestamp.
 
 ## checkstring 0.2.0
 

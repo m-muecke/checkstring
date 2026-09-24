@@ -43,9 +43,17 @@
 <ul><li>
 <code><a href="../reference/is_base64.html">is_base64()</a></code> and <code><a href="../reference/is_base64url.html">is_base64url()</a></code> now return <code>FALSE</code> for empty strings.</li>
 <li>
+<code><a href="../reference/is_cuid2.html">is_cuid2()</a></code> now rejects strings longer than 32 characters, the maximum CUID2 length.</li>
+<li>
+<code><a href="../reference/is_email.html">is_email()</a></code> now rejects domain labels that end with a hyphen, such as <code>"user@domain-.com"</code>.</li>
+<li>
+<code><a href="../reference/is_figi.html">is_figi()</a></code> now rejects the reserved prefixes <code>BS</code>, <code>BM</code>, <code>GG</code>, <code>GB</code>, <code>GH</code>, <code>KY</code>, and <code>VG</code>.</li>
+<li>
 <code><a href="../reference/is_ipv6.html">is_ipv6()</a></code> no longer accepts a trailing single colon after a compressed group, such as <code>"1::2:"</code>.</li>
 <li>
 <code><a href="../reference/is_iso_datetime.html">is_iso_datetime()</a></code> now validates the timezone offset, rejecting out-of-range values such as <code>"+99:99"</code>.</li>
+<li>
+<code><a href="../reference/is_ulid.html">is_ulid()</a></code> now rejects ULIDs whose first character is greater than <code>7</code>, which would overflow the 48-bit timestamp.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="checkstring-020">checkstring 0.2.0<a class="anchor" aria-label="anchor" href="#checkstring-020"></a></h2><p class="text-muted">CRAN release: 2026-06-29</p>

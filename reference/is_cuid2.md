@@ -1,6 +1,7 @@
 # Check if an argument is a CUID2 string
 
-Check if an argument is a CUID2 string
+Validates CUID2 strings of 24 (the default length) to 32 (the maximum
+length) characters.
 
 ## Usage
 
@@ -18,6 +19,10 @@ is_cuid2(x)
 ## Value
 
 `TRUE` if `x` is a valid CUID2 string, `FALSE` otherwise.
+
+## References
+
+<https://github.com/paralleldrive/cuid2>
 
 ## Examples
 
