@@ -104,7 +104,7 @@ is_email <- function(x) {
 #' is_uuid("550e8400-e29b-41d4-a716-446655440000")
 #' @export
 is_uuid <- function(x) {
-  regex <- "^[0-9a-f]{8}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{4}\\b-[0-9a-f]{12}$" # nolint
+  regex <- "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 
