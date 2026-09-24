@@ -212,7 +212,7 @@ is_ipv6 <- function(x) {
   }
   has_compressed <- grepl("::", x, fixed = TRUE)
   # reject lone leading/trailing single colons (not part of "::")
-  if (!has_compressed && (startsWith(x, ":") || endsWith(x, ":"))) {
+  if ((startsWith(x, ":") && !startsWith(x, "::")) || (endsWith(x, ":") && !endsWith(x, "::"))) {
     return(FALSE)
   }
   # split off optional embedded IPv4 tail (e.g. "::ffff:192.168.1.1")

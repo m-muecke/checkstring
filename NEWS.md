@@ -1,5 +1,7 @@
 # checkstring (development version)
 
+- `is_ipv6()` no longer accepts a trailing single colon after a compressed group, such as `"1::2:"`.
+
 # checkstring 0.2.0
 
 - `is_color_hex()` validates hex color strings (`#RGB`, `#RGBA`, `#RRGGBB`, `#RRGGBBAA`).
