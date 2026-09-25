@@ -1,6 +1,6 @@
-# Check if an argument is url string
+# Check if an argument is a URL string
 
-Check if an argument is url string
+Check if an argument is a URL string
 
 ## Usage
 

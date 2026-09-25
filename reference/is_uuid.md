@@ -1,6 +1,6 @@
-# Check if an argument is an UUID string
+# Check if an argument is a UUID string
 
-Check if an argument is an UUID string
+Check if an argument is a UUID string
 
 ## Usage
 

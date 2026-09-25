@@ -1,6 +1,6 @@
-# Check if an argument is a email address string
+# Check if an argument is an email address string
 
-Check if an argument is a email address string
+Check if an argument is an email address string
 
 ## Usage
 

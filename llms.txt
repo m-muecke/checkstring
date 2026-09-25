@@ -74,11 +74,11 @@ is_iban("GB29NWBK60161331926819")
 - [`is_mime()`](https://m-muecke.github.io/checkstring/reference/is_mime.md)
   : Check if an argument is a MIME type string
 - [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md)
-  : Check if an argument is base64url string
+  : Check if an argument is a base64url string
 - [`is_cuid2()`](https://m-muecke.github.io/checkstring/reference/is_cuid2.md)
   : Check if an argument is a CUID2 string
 - [`is_email()`](https://m-muecke.github.io/checkstring/reference/is_email.md)
-  : Check if an argument is a email address string
+  : Check if an argument is an email address string
 - [`is_hex()`](https://m-muecke.github.io/checkstring/reference/is_hex.md)
   : Check if an argument is a hexadecimal string
 - [`is_hostname()`](https://m-muecke.github.io/checkstring/reference/is_hostname.md)
@@ -100,9 +100,9 @@ is_iban("GB29NWBK60161331926819")
 - [`is_ulid()`](https://m-muecke.github.io/checkstring/reference/is_ulid.md)
   : Check if an argument is a ULID string
 - [`is_url()`](https://m-muecke.github.io/checkstring/reference/is_url.md)
-  : Check if an argument is url string
+  : Check if an argument is a URL string
 - [`is_uuid()`](https://m-muecke.github.io/checkstring/reference/is_uuid.md)
-  : Check if an argument is an UUID string
+  : Check if an argument is a UUID string
 
 ## Identifier validation
 
