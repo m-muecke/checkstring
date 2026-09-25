@@ -138,7 +138,7 @@ is_mime <- function(x) {
 #' is_base64("SGVsbG8gV29ybGQ=")
 #' @export
 is_base64 <- function(x) {
-  regex <- "^([0-9a-zA-Z+/]{4})*((([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?)$"
+  regex <- "^([0-9a-zA-Z+/]{4})*([0-9a-zA-Z+/]{2}==|[0-9a-zA-Z+/]{3}=)?$"
   is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
@@ -151,7 +151,7 @@ is_base64 <- function(x) {
 #' is_base64url("SGVsbG8gV29ybGQ")
 #' @export
 is_base64url <- function(x) {
-  regex <- "^([0-9a-zA-Z\\-_]{4})*((([0-9a-zA-Z\\-_]{2}(==)?)|([0-9a-zA-Z\\-_]{3}(=)?))?)$" # nolint
+  regex <- "^([0-9a-zA-Z_-]{4})*([0-9a-zA-Z_-]{2}(==)?|[0-9a-zA-Z_-]{3}=?)?$"
   is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
