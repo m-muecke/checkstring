@@ -56,7 +56,7 @@ is_cusip <- function(x) {
   pos <- seq.int(2L, 8L, by = 2L)
   vals[pos] <- vals[pos] * 2L
   total <- sum(vals %/% 10L + vals %% 10L)
-  check <- (10L - total %% 10L) %% 10L
+  check <- -total %% 10L
   codes[9L] - 48L == check
 }
 
@@ -88,7 +88,7 @@ is_figi <- function(x) {
   pos <- seq.int(2L, 10L, by = 2L)
   vals[pos] <- vals[pos] * 2L
   total <- sum(vals %/% 10L + vals %% 10L)
-  check <- (10L - total %% 10L) %% 10L
+  check <- -total %% 10L
   codes[12L] - 48L == check
 }
 
@@ -251,7 +251,7 @@ is_sedol <- function(x) {
   vals <- char_to_val(codes[1:6])
   wt <- c(1L, 3L, 1L, 7L, 3L, 9L)
   total <- sum(vals * wt)
-  check <- (10L - total %% 10L) %% 10L
+  check <- -total %% 10L
   codes[7L] - 48L == check
 }
 
