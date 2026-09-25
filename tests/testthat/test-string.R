@@ -233,7 +233,7 @@ test_that("is_hostname works", {
   expect_false(is_hostname("exam ple.com")) # space
   expect_false(is_hostname(".example.com")) # leading dot
   expect_false(is_hostname("")) # empty
-  expect_false(is_hostname(paste(rep("a", 254), collapse = ""))) # too long
+  expect_false(is_hostname(strrep("a", 254L))) # too long
 })
 
 test_that("is_mac works", {
