@@ -2,7 +2,7 @@
 % Please edit documentation in R/string.R
 \name{is_url}
 \alias{is_url}
-\title{Check if an argument is url string}
+\title{Check if an argument is a URL string}
 \usage{
 is_url(x)
 }
@@ -14,7 +14,7 @@ Object to check.}
 \code{TRUE} if \code{x} is a valid URL string, \code{FALSE} otherwise.
 }
 \description{
-Check if an argument is url string
+Check if an argument is a URL string
 }
 \examples{
 is_url("https://example.com")

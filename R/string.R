@@ -82,7 +82,7 @@ is_color_hex <- function(x) {
   is_string(x) && grepl("^#([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$", x, ignore.case = TRUE)
 }
 
-#' Check if an argument is a email address string
+#' Check if an argument is an email address string
 #'
 #' @param x (`any`)\cr
 #'   Object to check.
@@ -95,7 +95,7 @@ is_email <- function(x) {
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 
-#' Check if an argument is an UUID string
+#' Check if an argument is a UUID string
 #'
 #' @param x (`any`)\cr
 #'   Object to check.
@@ -142,7 +142,7 @@ is_base64 <- function(x) {
   is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
-#' Check if an argument is base64url string
+#' Check if an argument is a base64url string
 #'
 #' @param x (`any`)\cr
 #'   Object to check.
@@ -155,7 +155,7 @@ is_base64url <- function(x) {
   is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
-#' Check if an argument is url string
+#' Check if an argument is a URL string
 #'
 #' @param x (`any`)\cr
 #'   Object to check.

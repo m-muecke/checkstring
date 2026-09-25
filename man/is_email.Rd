@@ -2,7 +2,7 @@
 % Please edit documentation in R/string.R
 \name{is_email}
 \alias{is_email}
-\title{Check if an argument is a email address string}
+\title{Check if an argument is an email address string}
 \usage{
 is_email(x)
 }
@@ -14,7 +14,7 @@ Object to check.}
 \code{TRUE} if \code{x} is a valid email address string, \code{FALSE} otherwise.
 }
 \description{
-Check if an argument is a email address string
+Check if an argument is an email address string
 }
 \examples{
 is_email("user@example.com")

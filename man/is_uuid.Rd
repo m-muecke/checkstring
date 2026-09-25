@@ -2,7 +2,7 @@
 % Please edit documentation in R/string.R
 \name{is_uuid}
 \alias{is_uuid}
-\title{Check if an argument is an UUID string}
+\title{Check if an argument is a UUID string}
 \usage{
 is_uuid(x)
 }
@@ -14,7 +14,7 @@ Object to check.}
 \code{TRUE} if \code{x} is a valid UUID string, \code{FALSE} otherwise.
 }
 \description{
-Check if an argument is an UUID string
+Check if an argument is a UUID string
 }
 \examples{
 is_uuid("550e8400-e29b-41d4-a716-446655440000")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/string.R
 \name{is_base64url}
 \alias{is_base64url}
-\title{Check if an argument is base64url string}
+\title{Check if an argument is a base64url string}
 \usage{
 is_base64url(x)
 }
@@ -14,7 +14,7 @@ Object to check.}
 \code{TRUE} if \code{x} is a valid non-empty base64url string, \code{FALSE} otherwise.
 }
 \description{
-Check if an argument is base64url string
+Check if an argument is a base64url string
 }
 \examples{
 is_base64url("SGVsbG8gV29ybGQ")
