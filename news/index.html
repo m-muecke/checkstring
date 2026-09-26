@@ -41,6 +41,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="checkstring-development-version">checkstring (development version)<a class="anchor" aria-label="anchor" href="#checkstring-development-version"></a></h2>
 <ul><li>
+<code><a href="../reference/is_base64.html">is_base64()</a></code>, <code><a href="../reference/is_base64url.html">is_base64url()</a></code>, <code><a href="../reference/is_doi.html">is_doi()</a></code>, <code><a href="../reference/is_email.html">is_email()</a></code>, <code><a href="../reference/is_ipv4.html">is_ipv4()</a></code>, <code><a href="../reference/is_iso_datetime.html">is_iso_datetime()</a></code>, <code><a href="../reference/is_mime.html">is_mime()</a></code>, <code><a href="../reference/is_semver.html">is_semver()</a></code>, and <code><a href="../reference/is_uuid.html">is_uuid()</a></code> no longer accept strings with a trailing newline, such as <code>"1.0.0\n"</code>.</li>
+<li>
 <code><a href="../reference/is_base64.html">is_base64()</a></code> and <code><a href="../reference/is_base64url.html">is_base64url()</a></code> now return <code>FALSE</code> for empty strings.</li>
 <li>
 <code><a href="../reference/is_cuid2.html">is_cuid2()</a></code> now rejects strings longer than 32 characters, the maximum CUID2 length.</li>

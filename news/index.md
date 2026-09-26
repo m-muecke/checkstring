@@ -2,6 +2,17 @@
 
 ## checkstring (development version)
 
+- [`is_base64()`](https://m-muecke.github.io/checkstring/reference/is_base64.md),
+  [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md),
+  [`is_doi()`](https://m-muecke.github.io/checkstring/reference/is_doi.md),
+  [`is_email()`](https://m-muecke.github.io/checkstring/reference/is_email.md),
+  [`is_ipv4()`](https://m-muecke.github.io/checkstring/reference/is_ipv4.md),
+  [`is_iso_datetime()`](https://m-muecke.github.io/checkstring/reference/is_iso_datetime.md),
+  [`is_mime()`](https://m-muecke.github.io/checkstring/reference/is_mime.md),
+  [`is_semver()`](https://m-muecke.github.io/checkstring/reference/is_semver.md),
+  and
+  [`is_uuid()`](https://m-muecke.github.io/checkstring/reference/is_uuid.md)
+  no longer accept strings with a trailing newline, such as `"1.0.0\n"`.
 - [`is_base64()`](https://m-muecke.github.io/checkstring/reference/is_base64.md)
   and
   [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md)
