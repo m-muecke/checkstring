@@ -1,5 +1,6 @@
 # checkstring (development version)
 
+- `is_base64()`, `is_base64url()`, `is_doi()`, `is_email()`, `is_ipv4()`, `is_iso_datetime()`, `is_mime()`, `is_semver()`, and `is_uuid()` no longer accept strings with a trailing newline, such as `"1.0.0\n"`.
 - `is_base64()` and `is_base64url()` now return `FALSE` for empty strings.
 - `is_cuid2()` now rejects strings longer than 32 characters, the maximum CUID2 length.
 - `is_email()` now rejects domain labels that end with a hyphen, such as `"user@domain-.com"`.

@@ -66,6 +66,7 @@ test_that("is_doi works", {
   expect_false(is_doi("10.12/xyz")) # registrant too short
   expect_false(is_doi("10.1000/")) # empty suffix
   expect_false(is_doi("10.1000")) # no slash
+  expect_false(is_doi("10.1038/nphys1170\n")) # trailing newline
 })
 
 test_that("is_isin works", {

@@ -37,6 +37,7 @@ test_that("is_iso_datetime works", {
   expect_false(is_iso_datetime("2024-01-15T12:00:00+24:00")) # offset hour 24
   expect_false(is_iso_datetime("2024-01-15T12:00:00-05:60")) # offset minute 60
   expect_false(is_iso_datetime(1L))
+  expect_false(is_iso_datetime("2024-01-15T12:00:00Z\n")) # trailing newline
 })
 
 test_that("is_color_hex works", {
@@ -69,6 +70,7 @@ test_that("is_email works", {
   expect_false(is_email("user@com")) # no dot in domain
   expect_false(is_email("user@domain..com")) # consecutive dots in domain
   expect_false(is_email("user@domain.c")) # TLD too short
+  expect_false(is_email("user@example.com\n")) # trailing newline
 })
 
 test_that("is_mime works", {
@@ -87,6 +89,7 @@ test_that("is_mime works", {
   expect_false(is_mime("text/plain; charset=utf-8")) # parameters not allowed
   expect_true(is_mime("TEXT/plain")) # case-insensitive per RFC 2045
   expect_false(is_mime(1L))
+  expect_false(is_mime("text/plain\n")) # trailing newline
 })
 
 test_that("is_uuid works", {
@@ -97,6 +100,7 @@ test_that("is_uuid works", {
   expect_false(is_uuid("123e4567-e89b-12d3-a456-42661417400")) # too short
   expect_false(is_uuid("123e4567-e89b-12d3-a456-4266141740000")) # too long
   expect_false(is_uuid("g23e4567-e89b-12d3-a456-426614174000")) # invalid hex char
+  expect_false(is_uuid("550e8400-e29b-41d4-a716-446655440000\n")) # trailing newline
 })
 
 test_that("is_base64 works", {
@@ -109,6 +113,7 @@ test_that("is_base64 works", {
   expect_false(is_base64("TWE===")) # overpadded
   expect_false(is_base64("TWE*")) # invalid char
   expect_false(is_base64(""))
+  expect_false(is_base64("TWFu\n")) # trailing newline
 })
 
 test_that("is_base64url works", {
@@ -120,6 +125,7 @@ test_that("is_base64url works", {
   expect_false(is_base64url("TWE===")) # overpadded
   expect_false(is_base64url("TWE*")) # invalid char
   expect_false(is_base64url(""))
+  expect_false(is_base64url("TWFu\n")) # trailing newline
 })
 
 test_that("is_ipv4 works", {
@@ -134,6 +140,7 @@ test_that("is_ipv4 works", {
   expect_false(is_ipv4("192.168.01.1")) # leading zero
   expect_false(is_ipv4("abc.def.ghi.jkl")) # non-numeric
   expect_false(is_ipv4(1L))
+  expect_false(is_ipv4("192.168.1.1\n")) # trailing newline
 })
 
 test_that("is_ipv6 works", {
@@ -219,6 +226,7 @@ test_that("is_semver works", {
   expect_false(is_semver("1.0.0-")) # trailing hyphen
   expect_false(is_semver("1.0.0+")) # trailing plus
   expect_false(is_semver("v1.0.0")) # v prefix
+  expect_false(is_semver("1.0.0\n")) # trailing newline
 })
 
 test_that("is_hostname works", {

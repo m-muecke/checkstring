@@ -103,7 +103,7 @@ is_figi <- function(x) {
 #' is_doi("10.1038/nphys1170")
 #' @export
 is_doi <- function(x) {
-  regex <- "^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$"
+  regex <- "^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+\\z"
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 

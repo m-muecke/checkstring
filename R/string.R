@@ -45,7 +45,7 @@ is_iso_date <- function(x) {
 #' is_iso_datetime("2024-01-15T12:00:00")
 #' @export
 is_iso_datetime <- function(x) {
-  regex <- "^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})(?:\\.\\d+)?(?:Z|[+-](\\d{2}):(\\d{2}))?$" # nolint
+  regex <- "^(\\d{4}-\\d{2}-\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})(?:\\.\\d+)?(?:Z|[+-](\\d{2}):(\\d{2}))?\\z" # nolint
   if (!is_string(x)) {
     return(FALSE)
   }
@@ -91,7 +91,7 @@ is_color_hex <- function(x) {
 #' is_email("user@example.com")
 #' @export
 is_email <- function(x) {
-  regex <- "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_'+\\-.]*[A-Z0-9_+\\-])@([A-Z0-9](?:[A-Z0-9\\-]*[A-Z0-9])?\\.)+[A-Z]{2,}$" # nolint
+  regex <- "^(?!\\.)(?!.*\\.\\.)([A-Z0-9_'+\\-.]*[A-Z0-9_+\\-])@([A-Z0-9](?:[A-Z0-9\\-]*[A-Z0-9])?\\.)+[A-Z]{2,}\\z" # nolint
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 
@@ -104,7 +104,7 @@ is_email <- function(x) {
 #' is_uuid("550e8400-e29b-41d4-a716-446655440000")
 #' @export
 is_uuid <- function(x) {
-  regex <- "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+  regex <- "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\z"
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 
@@ -125,7 +125,7 @@ is_uuid <- function(x) {
 #' @export
 is_mime <- function(x) {
   types <- "application|audio|font|image|message|model|multipart|text|video"
-  regex <- paste0("^(", types, ")/[a-z0-9][a-z0-9!#$&\\-^_.+]*$")
+  regex <- paste0("^(", types, ")/[a-z0-9][a-z0-9!#$&\\-^_.+]*\\z")
   is_string(x) && grepl(regex, x, ignore.case = TRUE, perl = TRUE)
 }
 
@@ -138,7 +138,7 @@ is_mime <- function(x) {
 #' is_base64("SGVsbG8gV29ybGQ=")
 #' @export
 is_base64 <- function(x) {
-  regex <- "^([0-9a-zA-Z+/]{4})*([0-9a-zA-Z+/]{2}==|[0-9a-zA-Z+/]{3}=)?$"
+  regex <- "^([0-9a-zA-Z+/]{4})*([0-9a-zA-Z+/]{2}==|[0-9a-zA-Z+/]{3}=)?\\z"
   is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
@@ -151,7 +151,7 @@ is_base64 <- function(x) {
 #' is_base64url("SGVsbG8gV29ybGQ")
 #' @export
 is_base64url <- function(x) {
-  regex <- "^([0-9a-zA-Z_-]{4})*([0-9a-zA-Z_-]{2}(==)?|[0-9a-zA-Z_-]{3}=?)?$"
+  regex <- "^([0-9a-zA-Z_-]{4})*([0-9a-zA-Z_-]{2}(==)?|[0-9a-zA-Z_-]{3}=?)?\\z"
   is_string(x) && nzchar(x) && grepl(regex, x, perl = TRUE)
 }
 
@@ -189,7 +189,7 @@ is_url <- function(x) {
 #' @export
 is_ipv4 <- function(x) {
   octet <- "(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])"
-  regex <- paste0("^", paste(rep(octet, 4L), collapse = "\\."), "$")
+  regex <- paste0("^", paste(rep(octet, 4L), collapse = "\\."), "\\z")
   is_string(x) && grepl(regex, x, perl = TRUE)
 }
 
@@ -308,7 +308,7 @@ is_sha256 <- function(x) {
 #' is_semver("1.0.0")
 #' @export
 is_semver <- function(x) {
-  regex <- "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$" # nolint
+  regex <- "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?\\z" # nolint
   is_string(x) && grepl(regex, x, perl = TRUE)
 }
 
