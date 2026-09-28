@@ -1,6 +1,6 @@
 # Changelog
 
-## checkstring (development version)
+## checkstring 0.2.1
 
 - [`is_base64()`](https://m-muecke.github.io/checkstring/reference/is_base64.md),
   [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md),
