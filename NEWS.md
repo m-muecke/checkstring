@@ -6,6 +6,7 @@
 - `is_email()` now rejects domain labels that end with a hyphen, such as `"user@domain-.com"`.
 - `is_figi()` now rejects the reserved prefixes `BS`, `BM`, `GG`, `GB`, `GH`, `KY`, and `VG`.
 - `is_ipv6()` no longer accepts a trailing single colon after a compressed group, such as `"1::2:"`.
+- `is_isbn()` now rejects ISBN-13s that don't start with `978` or `979`, as well as ISMNs (`9790`).
 - `is_iso_datetime()` now validates the timezone offset, rejecting out-of-range values such as `"+99:99"`.
 - `is_ulid()` now rejects ULIDs whose first character is greater than `7`, which would overflow the 48-bit timestamp.
 

@@ -154,7 +154,7 @@ is_isbn <- function(x) {
     codes <- utf8ToInt(digits)
     d <- parse_check_digits(codes)
     sum(d * 10:1) %% 11L == 0L
-  } else if (grepl("^\\d{13}$", digits)) {
+  } else if (grepl("^97(8\\d|9[1-9])\\d{9}$", digits)) {
     d <- utf8ToInt(digits) - 48L
     sum(d * rep_len(c(1L, 3L), 13L)) %% 10L == 0L
   } else {

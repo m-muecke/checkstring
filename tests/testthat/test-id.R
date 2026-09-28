@@ -90,9 +90,12 @@ test_that("is_isbn works", {
   expect_true(is_isbn("9780306406157"))
   expect_true(is_isbn("978-0-306-40615-7"))
   expect_true(is_isbn("978 0 306 40615 7"))
+  expect_true(is_isbn("979-10-323-0082-4"))
 
   expect_false(is_isbn("0306406153")) # bad check digit
   expect_false(is_isbn("9780306406158")) # bad check digit
+  expect_false(is_isbn("0000000000000")) # not a 978/979 prefix
+  expect_false(is_isbn("9790260000438")) # ISMN
   expect_false(is_isbn("030640615")) # too short
   expect_false(is_isbn("12345")) # wrong length
   expect_false(is_isbn(123L))
