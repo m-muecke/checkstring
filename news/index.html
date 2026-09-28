@@ -53,6 +53,8 @@
 <li>
 <code><a href="../reference/is_ipv6.html">is_ipv6()</a></code> no longer accepts a trailing single colon after a compressed group, such as <code>"1::2:"</code>.</li>
 <li>
+<code><a href="../reference/is_isbn.html">is_isbn()</a></code> now rejects ISBN-13s that don’t start with <code>978</code> or <code>979</code>, as well as ISMNs (<code>9790</code>).</li>
+<li>
 <code><a href="../reference/is_iso_datetime.html">is_iso_datetime()</a></code> now validates the timezone offset, rejecting out-of-range values such as <code>"+99:99"</code>.</li>
 <li>
 <code><a href="../reference/is_ulid.html">is_ulid()</a></code> now rejects ULIDs whose first character is greater than <code>7</code>, which would overflow the 48-bit timestamp.</li>

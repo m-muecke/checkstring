@@ -29,6 +29,9 @@
 - [`is_ipv6()`](https://m-muecke.github.io/checkstring/reference/is_ipv6.md)
   no longer accepts a trailing single colon after a compressed group,
   such as `"1::2:"`.
+- [`is_isbn()`](https://m-muecke.github.io/checkstring/reference/is_isbn.md)
+  now rejects ISBN-13s that don’t start with `978` or `979`, as well as
+  ISMNs (`9790`).
 - [`is_iso_datetime()`](https://m-muecke.github.io/checkstring/reference/is_iso_datetime.md)
   now validates the timezone offset, rejecting out-of-range values such
   as `"+99:99"`.
