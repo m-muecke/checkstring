@@ -1,3 +1,5 @@
+# checkstring (development version)
+
 # checkstring 0.2.1
 
 - `is_base64()`, `is_base64url()`, `is_doi()`, `is_email()`, `is_ipv4()`, `is_iso_datetime()`, `is_mime()`, `is_semver()`, and `is_uuid()` no longer accept strings with a trailing newline, such as `"1.0.0\n"`.
