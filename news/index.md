@@ -4,6 +4,8 @@
 
 ## checkstring 0.2.1
 
+CRAN release: 2026-09-28
+
 - [`is_base64()`](https://m-muecke.github.io/checkstring/reference/is_base64.md),
   [`is_base64url()`](https://m-muecke.github.io/checkstring/reference/is_base64url.md),
   [`is_doi()`](https://m-muecke.github.io/checkstring/reference/is_doi.md),
